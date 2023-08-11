@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #37574A;
+  --foreground: #484349;
+  --background: #FFFFFC;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+main {
+  padding-bottom: 240px;
+}
