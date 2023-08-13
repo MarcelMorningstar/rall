@@ -1,67 +1,113 @@
 'use client'
 
 import { useState } from "react";
+import { useWindowDimensions } from "@/utilities/window";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
+import { Menu, MenuHandler, MenuList, MenuItem, Typography } from "@material-tailwind/react";
+import { HiMenuAlt3 } from "react-icons/hi";
 
 export default function Navbar() {
+  const [openMenu1, setOpenMenu1] = useState(false)
+  const [openMenu2, setOpenMenu2] = useState(false)
+  const dimensions = useWindowDimensions()
   const pathname = usePathname()
-  const [openMenu, setOpenMenu] = useState(false);
-
-  const menuItems = [
-    {
-      title: "Starptautiskā Transportēšana",
-      link: "/shipping",
-    },
-    {
-      title: "Pašizgāzēji",
-      link: "/dump-trucks",
-    },
-    {
-      title: "Būvniecība",
-      link: "/construction",
-    },
-    {
-      title: "Biroju Noma",
-      link: "/rent",
-    },
-  ];
-
+  
   return (
-    <nav className="absolute top-2 flex flex-row items-center justify-between w-full bg-foreground/80 px-24 py-1.5">
+    <nav className="absolute top-2 flex flex-row items-center justify-between gap-3 w-full bg-foreground/80 py-1.5" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
       <div className="flex flex-row items-end gap-2">
         <Link href="/" className="text-4xl font-bold text-primary">LOGO</Link>
 
         <div className="flex flex-row gap-1">
-          <button className="hover:text-primary">GB</button>
-          <button className="hover:text-primary">RU</button>
-          <button className="hover:text-primary">LV</button>
-          <button className="hover:text-primary">EN</button>
+          <button className="transition-all duration-300 text-background hover:text-secondary">GB</button>
+          <button className="transition-all duration-300 text-background hover:text-secondary">RU</button>
+          <button className="transition-all duration-300 text-background hover:text-secondary">LV</button>
+          <button className="transition-all duration-300 text-background hover:text-secondary">EN</button>
         </div>
       </div>
 
-      <div className="flex flex-row gap-4">
-        <Link href="/about" className={pathname == "/about" ? "relative font-medium text-background after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300" : "relative font-medium text-background after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300"}>PAR MUMS</Link>
-        <Link href="/contact" className={pathname == "/contact" ? "relative font-medium text-background after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300" : "relative font-medium text-background after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300"}>KONTAKTI</Link>
+      {
+        dimensions.width > 900 ? (
+          <div className="flex flex-row gap-4">
+            <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
+              <MenuHandler>
+                <span className={`relative font-medium text-background whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300 cursor-pointer`}>PAKALPOJUMI</span>
+              </MenuHandler>
+              <MenuList className="w-auto">
+                <ul className="w-full">
+                  <Link href='/shipping'>
+                    <MenuItem>
+                      <span>Starptautiskā Transportēšana</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/dump-trucks'>
+                    <MenuItem>
+                      <span>Pašizgāzēji</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/construction'>
+                    <MenuItem>
+                      <span>Būvniecība</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/rent'>
+                    <MenuItem>
+                      <span>Biroju Noma</span>
+                    </MenuItem>
+                  </Link>
+                </ul>
+              </MenuList>
+            </Menu>
 
-        <Menu open={openMenu} handler={setOpenMenu} allowHover>
-          <MenuHandler>
-            <span className={(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "relative font-medium text-background after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300" : "relative font-medium text-background after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300"}>PAKALPOJUMI</span>
-          </MenuHandler>
-          <MenuList className="w-auto">
-            <ul className="w-full">
-              {menuItems.map(({ title, link }) => (
-                <Link href={link} key={title}>
-                  <MenuItem>
-                    <span>{ title }</span>
-                  </MenuItem>
-                </Link>
-              ))}
-            </ul>
-          </MenuList>
-        </Menu>
-      </div>
+            <Link href="/about" className={`relative font-medium text-background whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300`}>PAR MUMS</Link>
+            <Link href="/contact" className={`relative font-medium text-background whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300`}>KONTAKTI</Link>
+          </div>
+        ) : (
+          <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
+              <MenuHandler>
+                <span><HiMenuAlt3 className="w-7 h-7 text-background cursor-pointer" /></span>
+              </MenuHandler>
+              <MenuList className="w-auto">
+                <ul className="w-full focus:outline-none">
+                  <span className="text-base font-semibold">Pakalpojumi</span>
+                  <Link href='/shipping'>
+                    <MenuItem>
+                      <span>Starptautiskā Transportēšana</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/dump-trucks'>
+                    <MenuItem>
+                      <span>Pašizgāzēji</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/construction'>
+                    <MenuItem>
+                      <span>Būvniecība</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/rent'>
+                    <MenuItem>
+                      <span>Biroju Noma</span>
+                    </MenuItem>
+                  </Link>
+                  <hr className="my-3" />
+                  <span className="text-base font-semibold">Kompānija</span>
+                  <Link href='/about'>
+                    <MenuItem>
+                      <span>Par Mums</span>
+                    </MenuItem>
+                  </Link>
+                  <Link href='/contact'>
+                    <MenuItem>
+                      <span>Kontakti</span>
+                    </MenuItem>
+                  </Link>
+                </ul>
+              </MenuList>
+          </Menu>
+        )
+      }
+
     </nav>
   )
 }
