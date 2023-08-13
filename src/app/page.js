@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed object-contain" style={{ "backgroundImage": "url('./images/shipping.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/shipping.jpg')" }} />
 
       <section>
         <h2>PAKALPOJUMI</h2>
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed object-contain" style={{ "backgroundImage": "url('./images/trucks.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/trucks.jpg')" }} />
 
       <section>
         <h2>KONTAKTI</h2>
