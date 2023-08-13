@@ -23,6 +23,8 @@ export default function Header() {
             <img src="/images/shipping.jpg" className="w-full h-full object-cover" loading="eager" alt="rall" />
             <img src="/images/trucks.jpg" className="w-full h-full object-cover" loading="eager" alt="rall" />
         </Carousel>
+
+        <h1 className="absolute bottom-9 left-1/2 -translate-x-1/2 text-center font-bold text-primary" style={{ fontSize: 'clamp(1.5rem, 1.08rem + 2.4vw, 3rem)', lineHeight: 'clamp(1.5rem, 1.08rem + 2.4vw, 3rem)', textShadow: '0 2px 4px var(--foreground)' }}>Lorem ipsum dolor sit amet</h1>
     </div>
   )
 }

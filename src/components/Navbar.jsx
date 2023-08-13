@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useWindowDimensions } from "@/utilities/window";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import { Menu, MenuHandler, MenuList, MenuItem, Typography } from "@material-tailwind/react";
@@ -16,13 +17,15 @@ export default function Navbar() {
   return (
     <nav className="absolute top-2 z-50 flex flex-row items-center justify-between gap-3 w-full bg-foreground/80 py-1.5" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
       <div className="flex flex-row items-end gap-2">
-        <Link href="/" className="text-4xl font-bold text-primary">LOGO</Link>
+        <Link href="/" className="relative w-24 h-8">
+          <Image src="/icons/rall.svg" fill priority alt="rall logo" />
+        </Link>
 
         <div className="flex flex-row gap-1">
-          <button className="transition-all duration-300 text-background hover:text-secondary">GB</button>
-          <button className="transition-all duration-300 text-background hover:text-secondary">RU</button>
-          <button className="transition-all duration-300 text-background hover:text-secondary">LV</button>
-          <button className="transition-all duration-300 text-background hover:text-secondary">EN</button>
+          <button className="transition-all duration-300 text-sm text-background hover:text-secondary">GB</button>
+          <button className="transition-all duration-300 text-sm text-background hover:text-secondary">RU</button>
+          <button className="transition-all duration-300 text-sm text-background hover:text-secondary">LV</button>
+          <button className="transition-all duration-300 text-sm text-background hover:text-secondary">EN</button>
         </div>
       </div>
 
@@ -37,22 +40,22 @@ export default function Navbar() {
                 <ul className="w-full focus:outline-none">
                   <Link href='/shipping'>
                     <MenuItem>
-                      <span>Starptautiskā Transportēšana</span>
+                      <span className="text-black">Starptautiskā Transportēšana</span>
                     </MenuItem>
                   </Link>
                   <Link href='/dump-trucks'>
                     <MenuItem>
-                      <span>Pašizgāzēji</span>
+                      <span className="text-black">Pašizgāzēji</span>
                     </MenuItem>
                   </Link>
                   <Link href='/construction'>
                     <MenuItem>
-                      <span>Būvniecība</span>
+                      <span className="text-black">Būvniecība</span>
                     </MenuItem>
                   </Link>
                   <Link href='/rent'>
                     <MenuItem>
-                      <span>Biroju Noma</span>
+                      <span className="text-black">Biroju Noma</span>
                     </MenuItem>
                   </Link>
                 </ul>
@@ -69,37 +72,37 @@ export default function Navbar() {
               </MenuHandler>
               <MenuList className="w-auto">
                 <ul className="w-full focus:outline-none">
-                  <span className="text-base font-semibold">Pakalpojumi</span>
+                  <span className="text-foreground text-base font-semibold">Pakalpojumi</span>
                   <Link href='/shipping'>
                     <MenuItem>
-                      <span>Starptautiskā Transportēšana</span>
+                      <span className="text-black">Starptautiskā Transportēšana</span>
                     </MenuItem>
                   </Link>
                   <Link href='/dump-trucks'>
                     <MenuItem>
-                      <span>Pašizgāzēji</span>
+                      <span className="text-black">Pašizgāzēji</span>
                     </MenuItem>
                   </Link>
                   <Link href='/construction'>
                     <MenuItem>
-                      <span>Būvniecība</span>
+                      <span className="text-black">Būvniecība</span>
                     </MenuItem>
                   </Link>
                   <Link href='/rent'>
                     <MenuItem>
-                      <span>Biroju Noma</span>
+                      <span className="text-black">Biroju Noma</span>
                     </MenuItem>
                   </Link>
                   <hr className="my-3" />
-                  <span className="text-base font-semibold">Kompānija</span>
+                  <span className="text-foreground text-base font-semibold">Kompānija</span>
                   <Link href='/about'>
                     <MenuItem>
-                      <span>Par Mums</span>
+                      <span className="text-black">Par Mums</span>
                     </MenuItem>
                   </Link>
                   <Link href='/contact'>
                     <MenuItem>
-                      <span>Kontakti</span>
+                      <span className="text-black">Kontakti</span>
                     </MenuItem>
                   </Link>
                 </ul>
