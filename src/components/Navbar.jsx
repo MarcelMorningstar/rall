@@ -14,7 +14,7 @@ export default function Navbar() {
   const pathname = usePathname()
   
   return (
-    <nav className="absolute top-2 flex flex-row items-center justify-between gap-3 w-full bg-foreground/80 py-1.5" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
+    <nav className="absolute top-2 z-50 flex flex-row items-center justify-between gap-3 w-full bg-foreground/80 py-1.5" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
       <div className="flex flex-row items-end gap-2">
         <Link href="/" className="text-4xl font-bold text-primary">LOGO</Link>
 
@@ -34,7 +34,7 @@ export default function Navbar() {
                 <span className={`relative font-medium text-background whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-background after:transition-all after:duration-300 cursor-pointer`}>PAKALPOJUMI</span>
               </MenuHandler>
               <MenuList className="w-auto">
-                <ul className="w-full">
+                <ul className="w-full focus:outline-none">
                   <Link href='/shipping'>
                     <MenuItem>
                       <span>Starptautiskā Transportēšana</span>

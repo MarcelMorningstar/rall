@@ -1,20 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
+import Header from "@/components/Header"
 import Worker from "@/components/Worker"
-import p from '@/images/p.jpeg'
 
 export default function Home() {
   return (
     <main>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
-      <h1>sadasdasd</h1>
+      <Header />
 
       <section>
         <h2>PAR MUMS</h2>
@@ -88,9 +80,9 @@ export default function Home() {
         <h2>KONTAKTI</h2>
 
         <div className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8">
-          <Worker image={p} name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-          <Worker image={p} name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-          <Worker image={p} name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
+          <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
+          <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
+          <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
         </div>
       </section>
     </main>
