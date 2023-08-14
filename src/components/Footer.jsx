@@ -24,14 +24,14 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <Link href="mailto:rall@gmail.com" className="flex flex-row lg:flex-row-reverse items-center gap-2">
+        <a href="mailto:rall@gmail.com" className="flex flex-row lg:flex-row-reverse items-center gap-2">
           <HiOutlineMail className="w-8 h-8 text-secondary"/>
           <span className="text-2xl font-semibold whitespace-nowrap text-background">info@rall.lv</span>
-        </Link>
-        <Link href="tel:+37128596185" className="flex flex-row lg:flex-row-reverse items-center gap-2">
+        </a>
+        <a href="tel:+37128596185" className="flex flex-row lg:flex-row-reverse items-center gap-2">
           <HiOutlinePhone className="w-8 h-8 text-secondary"/>
           <span className="text-2xl font-semibold whitespace-nowrap text-background">+37164633840</span>
-        </Link>
+        </a>
       </div>
     </footer>
   )

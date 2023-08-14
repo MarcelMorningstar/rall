@@ -18,14 +18,14 @@ export default function Navbar() {
     <nav className="top-2 z-50 flex flex-col items-center w-full py-1.5">
       <div className="flex flex-row justify-between w-full h-10" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row gap-3">
-          <Link href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2">
+          <a href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2">
             <HiOutlineMail className="w-5 h-5 text-primary"/>
             <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">info@rall.lv</span>
-          </Link>
-          <Link href="tel:+37128596185" className="flex flex-row items-center gap-2">
+          </a>
+          <a href="tel:+37128596185" className="flex flex-row items-center gap-2">
             <HiOutlinePhone className="w-5 h-5 text-primary"/>
             <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">+37164633840</span>
-          </Link>
+          </a>
         </div>
 
         <div className="flex flex-row gap-1">
