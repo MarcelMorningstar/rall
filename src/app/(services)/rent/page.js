@@ -1,7 +1,9 @@
+import Header from "@/components/Header";
+
 export default function Page() {
     return (
       <main>
-        <h1>rent</h1>
+        <Header images={['trucks.jpg']} />
       </main>
     )
   }

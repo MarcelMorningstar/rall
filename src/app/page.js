@@ -6,7 +6,7 @@ import Worker from "@/components/Worker"
 export default function Home() {
   return (
     <main>
-      <Header />
+      <Header images={['truck.jpg', 'dump-truck.jpg', 'shipping.jpg', 'trucks.jpg']} title="Lorem ipsum dolor sit amet" />
 
       <section>
         <h2>PAR MUMS</h2>
@@ -60,7 +60,7 @@ export default function Home() {
             <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Image src="/icons/architect.png" width={175} height={175} alt="rall international shipping" />
+            <Image src="/icons/constraction.png" width={175} height={175} alt="rall international shipping" />
             <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Būvniecība</span>
             <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
             <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
