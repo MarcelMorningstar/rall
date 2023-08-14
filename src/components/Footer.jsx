@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="flex flex-col items-center lg:items-start gap-2">
           <span className="text-2xl font-medium text-background uppercase">KOMPĀNIJA</span>
           <div className="flex flex-col items-center lg:items-start gap-[2px]">
-            <Link href="/about" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Par Mums</Link>
-            <Link href="/contact" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Kontakti</Link>
+            <Link href="#about" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Par Mums</Link>
+            <Link href="#contact" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Kontakti</Link>
           </div>
         </div>
         <div className="flex flex-col items-center lg:items-start gap-2">
@@ -26,11 +26,11 @@ export default function Footer() {
       <div className="flex flex-col gap-1">
         <Link href="mailto:rall@gmail.com" className="flex flex-row lg:flex-row-reverse items-center gap-2">
           <HiOutlineMail className="w-8 h-8 text-secondary"/>
-          <span className="text-2xl font-semibold whitespace-nowrap text-background">rall@gmail.com</span>
+          <span className="text-2xl font-semibold whitespace-nowrap text-background">info@rall.lv</span>
         </Link>
         <Link href="tel:+37128596185" className="flex flex-row lg:flex-row-reverse items-center gap-2">
           <HiOutlinePhone className="w-8 h-8 text-secondary"/>
-          <span className="text-2xl font-semibold whitespace-nowrap text-background">+371 28 596 185</span>
+          <span className="text-2xl font-semibold whitespace-nowrap text-background">+37164633840</span>
         </Link>
       </div>
     </footer>

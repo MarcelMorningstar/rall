@@ -8,13 +8,12 @@ export default function Home() {
     <main>
       <Header images={['truck.jpg', 'dump-truck.jpg', 'shipping.jpg', 'trucks.jpg']} title="Lorem ipsum dolor sit amet" />
 
-      <section>
+      <section id="about">
         <h2>PAR MUMS</h2>
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
           <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]">
-            <p className="text-justify line-clamp-[7]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <Link href="/about" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
+            <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
           </div>
           <div className="flex flex-row flex-wrap items-center justify-center gap-8 w-full lg:w-[55%]">
             <div className="flex flex-col items-center">
@@ -76,7 +75,7 @@ export default function Home() {
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/trucks.jpg')" }} />
 
-      <section>
+      <section id="contact">
         <h2>KONTAKTI</h2>
 
         <div className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8">

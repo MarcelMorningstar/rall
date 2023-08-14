@@ -20,11 +20,11 @@ export default function Navbar() {
         <div className="flex flex-row gap-3">
           <Link href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2">
             <HiOutlineMail className="w-5 h-5 text-primary"/>
-            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">rall@gmail.com</span>
+            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">info@rall.lv</span>
           </Link>
           <Link href="tel:+37128596185" className="flex flex-row items-center gap-2">
             <HiOutlinePhone className="w-5 h-5 text-primary"/>
-            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">+371 28 596 185</span>
+            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">+37164633840</span>
           </Link>
         </div>
 
@@ -78,8 +78,8 @@ export default function Navbar() {
                 </MenuList>
               </Menu>
 
-              <Link href="/about" className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>PAR MUMS</Link>
-              <Link href="/contact" className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>KONTAKTI</Link>
+              <Link href="#about" className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>PAR MUMS</Link>
+              <Link href="#contact" className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>KONTAKTI</Link>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
@@ -111,12 +111,12 @@ export default function Navbar() {
                     </Link>
                     <hr className="my-3" />
                     <span className="text-foreground text-base font-semibold">Kompānija</span>
-                    <Link href='/about'>
+                    <Link href='#about'>
                       <MenuItem>
                         <span className="text-black">Par Mums</span>
                       </MenuItem>
                     </Link>
-                    <Link href='/contact'>
+                    <Link href='#contact'>
                       <MenuItem>
                         <span className="text-black">Kontakti</span>
                       </MenuItem>

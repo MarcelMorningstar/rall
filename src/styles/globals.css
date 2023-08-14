@@ -9,6 +9,10 @@
   --background: #FFFFFC;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 body {
   position: relative;
   min-height: 100vh;
