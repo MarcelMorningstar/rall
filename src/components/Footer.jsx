@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="flex flex-col items-center lg:items-start gap-2">
           <span className="text-2xl font-medium text-background uppercase">KOMPĀNIJA</span>
           <div className="flex flex-col items-center lg:items-start gap-[2px]">
-            <Link href="#about" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Par Mums</Link>
-            <Link href="#contact" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Kontakti</Link>
+            <Link href="/#about" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Par Mums</Link>
+            <Link href="/#contact" className="text-base font-normal whitespace-nowrap transition-all duration-300 text-background hover:text-secondary">Kontakti</Link>
           </div>
         </div>
         <div className="flex flex-col items-center lg:items-start gap-2">

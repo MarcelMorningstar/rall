@@ -29,10 +29,10 @@ export default function Navbar() {
         </div>
 
         <div className="flex flex-row gap-1">
+          <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">EN</button>
           <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">GB</button>
           <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">RU</button>
           <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">LV</button>
-          <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">EN</button>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
             <div className="flex flex-row gap-4">
               <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>
-                  <span className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}>PAKALPOJUMI</span>
+                  <span className={`relative font-medium text-foreground whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300 cursor-pointer`}>PAKALPOJUMI</span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
@@ -78,13 +78,13 @@ export default function Navbar() {
                 </MenuList>
               </Menu>
 
-              <Link href="#about" className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>PAR MUMS</Link>
-              <Link href="#contact" className={`relative font-medium text-primary whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>KONTAKTI</Link>
+              <Link href="/#about" className={`relative font-medium text-foreground whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>PAR MUMS</Link>
+              <Link href="/#contact" className={`relative font-medium text-foreground whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>KONTAKTI</Link>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
                 <MenuHandler>
-                  <span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span>
+                  <span><HiMenuAlt3 className="w-7 h-7 text-foreground cursor-pointer" /></span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
@@ -111,12 +111,12 @@ export default function Navbar() {
                     </Link>
                     <hr className="my-3" />
                     <span className="text-foreground text-base font-semibold">Kompānija</span>
-                    <Link href='#about'>
+                    <Link href='/#about'>
                       <MenuItem>
                         <span className="text-black">Par Mums</span>
                       </MenuItem>
                     </Link>
-                    <Link href='#contact'>
+                    <Link href='/#contact'>
                       <MenuItem>
                         <span className="text-black">Kontakti</span>
                       </MenuItem>

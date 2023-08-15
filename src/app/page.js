@@ -1,12 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import Header from "@/components/Header"
+import CarouselHeader from "@/components/CarouselHeader"
 import Worker from "@/components/Worker"
 
 export default function Home() {
   return (
     <main>
-      <Header images={['truck.jpg', 'dump-truck.jpg', 'shipping.jpg', 'trucks.jpg']} title="Lorem ipsum dolor sit amet" />
+      <CarouselHeader />
 
       <section id="about">
         <h2>PAR MUMS</h2>
@@ -47,25 +47,25 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
           <div className="flex flex-col items-center gap-2">
-            <Image src="/icons/international-shipping.png" width={175} height={175} alt="rall international shipping" />
+            <Image src="/icons/truck.png" width={120} height={120} alt="rall international shipping" />
             <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Transportēšana</span>
             <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
             <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Image src="/icons/dump-truck.png" width={175} height={175} alt="rall dump trucks" />
+            <Image src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" />
             <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Pašizgāzēji</span>
             <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
             <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Image src="/icons/constraction.png" width={175} height={175} alt="rall international shipping" />
+            <Image src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" />
             <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Būvniecība</span>
             <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
             <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Image src="/icons/office.png" width={175} height={175} alt="rall international shipping" />
+            <Image src="/icons/office.png" width={120} height={120} alt="rall rent" />
             <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Biroju Noma</span>
             <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
             <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
@@ -84,6 +84,8 @@ export default function Home() {
           <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
         </div>
       </section>
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4478106.893429736!2d25.408669955440143!3d56.767423135554246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c2160751325b9d%3A0x92480e3af5b843de!2sRall%20%2C%20SIA!5e0!3m2!1sen!2slv!4v1692030117310!5m2!1sen!2slv" className="w-full h-80" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </main>
   )
 }
