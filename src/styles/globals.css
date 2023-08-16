@@ -40,7 +40,7 @@ section {
 h2 {
   position: relative;
   text-align: center;
-  font-size: 28px;
+  font-size: clamp(1.25rem, 0.8125rem + 2.5vw, 1.75rem);
   font-weight: 600;
   white-space: nowrap;
   color: var(--foreground);
