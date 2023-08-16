@@ -1,9 +1,10 @@
+import Layout from "./layout";
 import Image from "next/image";
 import Header from "@/components/Header";
 
 export default function Page() {
     return (
-        <main>
+        <Layout>
             <Header image='shipping-header.jpg' />
 
             <section>
@@ -35,6 +36,6 @@ export default function Page() {
                 </div>
                 <p className="absolute xl:static w-5/6 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi cum omnis necessitatibus repellendus consectetur quis, quidem delectus similique sit assumenda, sapiente natus. Ipsa ratione, fugiat quos rem illum quae nihil? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi cum omnis necessitatibus repellendus consectetur quis. necessitatibus repellendus consectetur quis.</p>
             </div>
-        </main>
+        </Layout>
     )
 }
