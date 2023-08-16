@@ -3,7 +3,11 @@
   "defaultLocale": "en",
   "pages": {
     "*": ["common"],
-    "/": ["home"]
+    "/": ["home"],
+    "/shipping": ["shipping"],
+    "/dump-trucks": ["dump-trucks"],
+    "/construction": ["construction"],
+    "/rent": ["rent"]
   },
   "keySeparator": ":"
 }

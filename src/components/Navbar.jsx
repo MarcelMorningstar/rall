@@ -3,6 +3,7 @@ import { useWindowDimensions } from "@/utilities/window";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useTranslation from 'next-translate/useTranslation';
 import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 
@@ -12,6 +13,7 @@ export default function Navbar() {
   const dimensions = useWindowDimensions()
   const router = useRouter()
   const { pathname, locale, locales, asPath, query } = router
+  const { t } = useTranslation('common');
 
   const handleLanguage = (e) => {
     const language = e.target.value;
@@ -37,7 +39,6 @@ export default function Navbar() {
           {
             locales.map(item => (
               <button key={item} className={`transition-all duration-300 text-sm font-medium text-foreground hover:text-secondary uppercase ${ locale === item ? 'underline text-secondary' : '' }`} value={item} onClick={handleLanguage}>{ item }</button>
-
             ))
           }
         </div>
@@ -57,36 +58,36 @@ export default function Navbar() {
             <div className="flex flex-row gap-4">
               <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>
-                  <span className={`relative font-medium text-foreground whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300 cursor-pointer`}>PAKALPOJUMI</span>
+                  <span className={`relative font-medium text-foreground whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300 cursor-pointer`}>{ t("section1") }</span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
                     <Link href='/shipping'>
                       <MenuItem>
-                        <span className="text-black">Starptautiskā Transportēšana</span>
+                        <span className="text-black capitalize">{ t("subsection1") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/dump-trucks'>
                       <MenuItem>
-                        <span className="text-black">Pašizgāzēji</span>
+                        <span className="text-black capitalize">{ t("subsection2") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/construction'>
                       <MenuItem>
-                        <span className="text-black">Būvniecība</span>
+                        <span className="text-black capitalize">{ t("subsection3") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/rent'>
                       <MenuItem>
-                        <span className="text-black">Biroju Noma</span>
+                        <span className="text-black capitalize">{ t("subsection4") }</span>
                       </MenuItem>
                     </Link>
                   </ul>
                 </MenuList>
               </Menu>
 
-              <Link href="/#about" className={`relative font-medium text-foreground whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>PAR MUMS</Link>
-              <Link href="/#contact" className={`relative font-medium text-foreground whitespace-nowrap after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>KONTAKTI</Link>
+              <Link href="/#about" className={`relative font-medium text-foreground whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>{ t("section2") }</Link>
+              <Link href="/#contact" className={`relative font-medium text-foreground whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>{ t("section3") }</Link>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
@@ -95,37 +96,37 @@ export default function Navbar() {
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
-                    <span className="text-foreground text-base font-semibold">Pakalpojumi</span>
+                    <span className="text-foreground text-base font-semibold capitalize">{ t("section1") }</span>
                     <Link href='/shipping'>
                       <MenuItem>
-                        <span className="text-black">Starptautiskā Transportēšana</span>
+                        <span className="text-black capitalize">{ t("subsection1") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/dump-trucks'>
                       <MenuItem>
-                        <span className="text-black">Pašizgāzēji</span>
+                        <span className="text-black capitalize">{ t("subsection2") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/construction'>
                       <MenuItem>
-                        <span className="text-black">Būvniecība</span>
+                        <span className="text-black capitalize">{ t("subsection3") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/rent'>
                       <MenuItem>
-                        <span className="text-black">Biroju Noma</span>
+                        <span className="text-black capitalize">{ t("subsection4") }</span>
                       </MenuItem>
                     </Link>
                     <hr className="my-3" />
-                    <span className="text-foreground text-base font-semibold">Kompānija</span>
+                    <span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span>
                     <Link href='/#about'>
                       <MenuItem>
-                        <span className="text-black">Par Mums</span>
+                        <span className="text-black capitalize">{ t("section2") }</span>
                       </MenuItem>
                     </Link>
                     <Link href='/#contact'>
                       <MenuItem>
-                        <span className="text-black">Kontakti</span>
+                        <span className="text-black capitalize">{ t("section3") }</span>
                       </MenuItem>
                     </Link>
                   </ul>

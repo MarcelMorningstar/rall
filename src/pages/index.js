@@ -6,7 +6,7 @@ import CarouselHeader from "@/components/CarouselHeader"
 import Worker from "@/components/Worker"
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Layout>
@@ -17,27 +17,27 @@ export default function Home() {
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
           <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]">
-            <p className="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p className="text-justify">{ t("home:about-description") }</p>
           </div>
           <div className="flex flex-row flex-wrap items-center justify-center gap-8 w-full lg:w-[55%]">
             <div className="flex flex-col items-center">
               <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap text-foreground">DARBINIEKI</span>
+              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
               <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap text-foreground">DIBINĀTS</span>
+              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
               <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap text-foreground">AUTOPARKS</span>
+              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
               <Image src="/icons/buildings.png" width={100} height={100} alt="rall buildings"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap text-foreground">ĒKAS</span>
+              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about4") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
           </div>
@@ -52,27 +52,27 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/truck.png" width={120} height={120} alt="rall international shipping" />
-            <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Transportēšana</span>
-            <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
-            <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
+            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection1")}</span>
+            <p className="text-center line-clamp-3">{ t("home:service1") }</p>
+            <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" />
-            <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Pašizgāzēji</span>
-            <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
-            <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
+            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection2")}</span>
+            <p className="text-center line-clamp-3">{ t("home:service2") }</p>
+            <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" />
-            <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Būvniecība</span>
-            <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
-            <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
+            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection3")}</span>
+            <p className="text-center line-clamp-3">{ t("home:service3") }</p>
+            <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/office.png" width={120} height={120} alt="rall rent" />
-            <span className="text-center text-3xl font-bold whitespace-nowrap text-foreground">Biroju Noma</span>
-            <p className="text-center line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore sed do eiusmod tempor incididunt ut labore et dolore</p>
-            <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">Uzzini vairāk</Link>
+            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection4")}</span>
+            <p className="text-center line-clamp-3">{ t("home:service4") }</p>
+            <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
           </div>
         </div>
       </section>
