@@ -1,10 +1,8 @@
-'use client'
-
 import { useState } from "react";
 import { useWindowDimensions } from "@/utilities/window";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { useRouter } from "next/router";
 import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 
@@ -12,8 +10,15 @@ export default function Navbar() {
   const [openMenu1, setOpenMenu1] = useState(false)
   const [openMenu2, setOpenMenu2] = useState(false)
   const dimensions = useWindowDimensions()
-  const pathname = usePathname()
-  
+  const router = useRouter()
+  const { pathname, locale, locales, asPath, query } = router
+
+  const handleLanguage = (e) => {
+    const language = e.target.value;
+
+    router.push({ pathname, query }, asPath, { locale: language })
+  }
+
   return (
     <nav className="top-2 z-50 flex flex-col items-center w-full py-1.5">
       <div className="flex flex-row justify-between w-full h-10" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
@@ -28,11 +33,13 @@ export default function Navbar() {
           </a>
         </div>
 
-        <div className="flex flex-row gap-1">
-          <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">EN</button>
-          <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">GB</button>
-          <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">RU</button>
-          <button className="transition-all duration-300 text-sm text-foreground hover:text-secondary">LV</button>
+        <div className="flex flex-row items-center gap-1.5">
+          {
+            locales.map(item => (
+              <button key={item} className={`transition-all duration-300 text-sm font-medium text-foreground hover:text-secondary uppercase ${ locale === item ? 'underline text-secondary' : '' }`} value={item} onClick={handleLanguage}>{ item }</button>
+
+            ))
+          }
         </div>
       </div>
 

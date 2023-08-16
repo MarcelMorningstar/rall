@@ -1,15 +1,18 @@
 import Link from "next/link"
-import Image from "next/image"
+import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation';
 import CarouselHeader from "@/components/CarouselHeader"
 import Worker from "@/components/Worker"
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <main>
-      <CarouselHeader />
+      <CarouselHeader t={t} />
 
       <section id="about">
-        <h2>PAR MUMS</h2>
+        <h2>{t("common:section2")}</h2>
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
           <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]">
@@ -43,7 +46,7 @@ export default function Home() {
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/shipping.jpg')" }} />
 
       <section>
-        <h2>PAKALPOJUMI</h2>
+        <h2>{t("common:section1")}</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
           <div className="flex flex-col items-center gap-2">
@@ -76,7 +79,7 @@ export default function Home() {
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/trucks.jpg')" }} />
 
       <section id="contact">
-        <h2>KONTAKTI</h2>
+        <h2>{t("common:section3")}</h2>
 
         <div className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8">
           <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
