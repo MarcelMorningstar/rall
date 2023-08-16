@@ -44,25 +44,25 @@ export default function ImageSlider() {
     return (
         <Slider {...settings}>
             <div className="relative h-80">
-                <Image src="/images/c2.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c2.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
             <div className="relative h-80" style={{ width: 200 }}>
-                <Image src="/images/c3.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c3.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
             <div className="relative h-80">
-                <Image src="/images/c4.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c4.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
             <div className="relative h-80">
-                <Image src="/images/c5.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c5.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
             <div className="relative h-80">
-                <Image src="/images/c1.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c1.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
             <div className="relative h-80">
-                <Image src="/images/c6.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c6.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
             <div className="relative h-80">
-                <Image src="/images/c7.jpg" className="object-cover" fill loading="eager" alt="rall contruction" />
+                <Image src="/images/c7.jpg" className="object-cover" fill priority alt="rall contruction" />
             </div>
         </Slider>
     )
