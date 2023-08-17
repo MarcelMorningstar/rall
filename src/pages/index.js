@@ -54,25 +54,25 @@ export default function Home() {
             <Image src="/icons/truck.png" width={120} height={120} alt="rall international shipping" />
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection1")}</span>
             <p className="text-center line-clamp-3">{ t("home:service1") }</p>
-            <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
+            <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px] border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" />
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection2")}</span>
             <p className="text-center line-clamp-3">{ t("home:service2") }</p>
-            <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
+            <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" />
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection3")}</span>
             <p className="text-center line-clamp-3">{ t("home:service3") }</p>
-            <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
+            <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Image src="/icons/office.png" width={120} height={120} alt="rall rent" />
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection4")}</span>
             <p className="text-center line-clamp-3">{ t("home:service4") }</p>
-            <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-background hover:text-secondary bg-primary">{ t("home:button") }</Link>
+            <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
         </div>
       </section>
