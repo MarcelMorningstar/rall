@@ -9,7 +9,7 @@ export default function Page() {
 
     return (
         <Layout>
-            <Header image='trucks.jpg' />
+            <Header image='shipping-header.jpg' />
 
             <section>
                 <h2>{ t("common:subsection4") }</h2>
