@@ -44,7 +44,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/shipping.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/bg1.jpg')" }} />
 
       <section>
         <h2>{t("common:section1")}</h2>
@@ -77,7 +77,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/trucks.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/bg2.jpg')" }} />
 
       <section id="contact">
         <h2>{t("common:section3")}</h2>

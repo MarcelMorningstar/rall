@@ -14,21 +14,9 @@ export default function Page() {
                 <h2>{ t("common:subsection1") }</h2>
 
                 <div className="flex flex-row flex-wrap justify-evenly gap-8">
-                    <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Piekabe 1</span>
-                    </div>
-                    <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Piekabe 2</span>
-                    </div>
-                    <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Piekabe 3</span>
-                    </div>
-                    <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Piekabe 4</span>
+                    <div className="flex flex-col items-center gap-1">
+                        <Image src="/icons/truck1.svg" width={240} height={120} alt='rall truck' />
+                        <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("shipping:category1") }</span>
                     </div>
                 </div>
             </section>

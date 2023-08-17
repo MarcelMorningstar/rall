@@ -30,7 +30,7 @@ export default function Page() {
                 </div>
             </section>
 
-            <ImageSlider />
+            <ImageSlider images={['r1.jpg', 'r1.jpg', 'r1.jpg', 'r1.jpg', 'r1.jpg', 'r1.jpg', 'r1.jpg', 'r1.jpg']} />
 
             <p className="text-center" style={{ padding: '48px clamp(1.5rem, -4.375rem + 33.5714vw, 25rem)' }}>{ t("rent:description") }</p>
         </Layout>
