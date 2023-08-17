@@ -22,7 +22,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="top-2 z-50 flex flex-col items-center w-full py-1.5">
+    <nav className="fixed z-40 flex flex-col items-center w-full h-auto bg-background border-foreground/60" style={{ borderBottomWidth: '1px' }}>
       <div className="flex flex-row justify-between w-full h-10" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row gap-3">
           <a href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2">
@@ -38,13 +38,13 @@ export default function Navbar() {
         <div className="flex flex-row items-center gap-1.5">
           {
             locales.map(item => (
-              <button key={item} className={`transition-all duration-300 text-sm font-medium text-foreground hover:text-secondary uppercase ${ locale === item ? 'underline text-secondary' : '' }`} value={item} onClick={handleLanguage}>{ item }</button>
+              <button key={item} className={`transition-all duration-300 text-sm font-medium text-primary hover:text-secondary uppercase ${ locale === item ? 'underline text-secondary' : '' }`} value={item} onClick={handleLanguage}>{ item }</button>
             ))
           }
         </div>
       </div>
 
-      <h3 className="w-11/12 h-0.5 my-1 bg-foreground/75" />
+      <hr className="relative w-11/12 h-0.5 my-0.5 bg-foreground/60" />
 
       <div className="flex flex-row items-center justify-between gap-3 w-full h-16" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row items-end gap-2">
@@ -58,7 +58,7 @@ export default function Navbar() {
             <div className="flex flex-row gap-4">
               <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>
-                  <span className={`relative font-medium text-foreground whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300 cursor-pointer`}>{ t("section1") }</span>
+                  <span className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}>{ t("section1") }</span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
@@ -86,13 +86,13 @@ export default function Navbar() {
                 </MenuList>
               </Menu>
 
-              <Link href="/#about" className={`relative font-medium text-foreground whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>{ t("section2") }</Link>
-              <Link href="/#contact" className={`relative font-medium text-foreground whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-foreground after:transition-all after:duration-300`}>{ t("section3") }</Link>
+              <Link href="/#about" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section2") }</Link>
+              <Link href="/#contact" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section3") }</Link>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
                 <MenuHandler>
-                  <span><HiMenuAlt3 className="w-7 h-7 text-foreground cursor-pointer" /></span>
+                  <span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">

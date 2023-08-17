@@ -42,7 +42,7 @@ export default function Page() {
                 </div>
             </section>
 
-            <ImageSlider />
+            <ImageSlider images={['c1.jpg', 'c2.jpg', 'c3.jpg', 'c4.jpg', 'c5.jpg', 'c6.jpg', 'c7.jpg', 'c8.jpg']} />
 
             <p className="text-center" style={{ padding: '48px clamp(1.5rem, -4.375rem + 33.5714vw, 25rem)' }}>{ t("construction:description") }</p>
         </Layout>
