@@ -1,11 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useWindowDimensions } from "@/utilities/window";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
 import useTranslation from 'next-translate/useTranslation';
 import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+
+function LinkToHash({ to, className, children }) {
+  const router = useRouter()
+  const { pathname } = router
+  const path = to.slice(0, to.indexOf('#'));
+  const hash = to.substring(to.indexOf("#"));
+
+  const scrollTo = () => {
+    if (pathname != path) {
+      sessionStorage.setItem("to", hash);
+      router.replace(path);
+    } else {
+      const element = document.querySelector(hash)
+
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const padding = window.getComputedStyle(element, null).getPropertyValue('padding-top')
+    
+        window.scrollTo(0, rect.top + window.scrollY - parseInt(padding) * 2);
+      }
+    }
+  }
+  
+  return (
+    <button className={className} onClick={() => scrollTo()}>{ children }</button>
+  )
+}
 
 export default function Navbar() {
   const [openMenu1, setOpenMenu1] = useState(false)
@@ -20,6 +47,23 @@ export default function Navbar() {
 
     router.push({ pathname, query }, asPath, { locale: language })
   }
+
+  useEffect(() => {
+    const hash = sessionStorage.getItem("to");
+
+    if (hash) {
+      const element = document.querySelector(hash)
+
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const padding = window.getComputedStyle(element, null).getPropertyValue('padding-top')
+  
+        window.scrollTo(0, rect.top + window.scrollY - parseInt(padding) * 2);
+      }
+
+      sessionStorage.removeItem("to")
+    }
+  }, [])
 
   return (
     <nav className="fixed z-40 flex flex-col items-center w-full h-auto bg-background border-foreground/60" style={{ borderBottomWidth: '1px' }}>
@@ -86,8 +130,8 @@ export default function Navbar() {
                 </MenuList>
               </Menu>
 
-              <Link href="/#about" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section2") }</Link>
-              <Link href="/#contact" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section3") }</Link>
+              <LinkToHash to="/#about" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section2") }</LinkToHash>
+              <LinkToHash to="/#contact" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section3") }</LinkToHash>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
@@ -119,16 +163,16 @@ export default function Navbar() {
                     </Link>
                     <hr className="my-3" />
                     <span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span>
-                    <Link href='/#about'>
+                    <LinkToHash to='/#about' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("section2") }</span>
                       </MenuItem>
-                    </Link>
-                    <Link href='/#contact'>
+                    </LinkToHash>
+                    <LinkToHash to='/#contact' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("section3") }</span>
                       </MenuItem>
-                    </Link>
+                    </LinkToHash>
                   </ul>
                 </MenuList>
             </Menu>
