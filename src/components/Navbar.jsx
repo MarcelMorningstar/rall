@@ -6,7 +6,6 @@ import Image from "next/image";
 import useTranslation from 'next-translate/useTranslation';
 import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import logo from '@/assets/icons/rall.svg'
 
 function LinkToHash({ to, className, children }) {
   const router = useRouter()
@@ -94,7 +93,7 @@ export default function Navbar() {
       <div className="flex flex-row items-center justify-between gap-3 w-full h-16" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row items-end gap-2">
           <Link href="/" className="relative w-28 sm:w-32 h-12 sm:h-16 transition-all duration-500">
-            <Image src={logo} fill priority alt="rall logo" />
+            <img src="/icons/rall.svg" className="w-auto h-full" loading="eager" alt="rall logo" />
           </Link>
         </div>
 
