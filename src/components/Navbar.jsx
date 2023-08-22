@@ -6,7 +6,7 @@ import Image from "next/image";
 import useTranslation from 'next-translate/useTranslation';
 import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import logo from '@/icons/rall.svg'
+import logo from '@/assets/icons/rall.svg'
 
 function LinkToHash({ to, className, children }) {
   const router = useRouter()
