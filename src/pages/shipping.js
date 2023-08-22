@@ -23,7 +23,7 @@ export default function Page() {
 
             <div className="relative grid grid-cols-1 xl:grid-cols-2 items-center xl:items-start gap-8 xl:px-24 py-12">
                 <div className="relative w-full h-96">
-                    <img src='/images/shipping.png' className="object-cover" fill alt='rall shiping' />
+                    <img src='/images/shipping.png' className="w-full h-full object-cover" loading="lazy" alt='rall shiping' />
                 </div>
                 <p className="absolute xl:static w-5/6 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("shipping:description") }</p>
             </div>
