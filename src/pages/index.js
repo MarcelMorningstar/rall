@@ -1,9 +1,17 @@
-import Layout from "./layout";
+import Layout from "./layout"
 import Link from "next/link"
 import Image from 'next/image'
-import useTranslation from 'next-translate/useTranslation';
+import useTranslation from 'next-translate/useTranslation'
 import CarouselHeader from "@/components/CarouselHeader"
 import Worker from "@/components/Worker"
+import about1 from "@/assets/icons/human.png"
+import about2 from "@/assets/icons/march.png"
+import about3 from "@/assets/icons/truck.png"
+import about4 from "@/assets/icons/buildings.png"
+import service1 from "@/assets/icons/truck.png"
+import service2 from "@/assets/icons/dump-truck.png"
+import service3 from "@/assets/icons/constraction.png"
+import service4 from "@/assets/icons/office.png"
 
 export default function Home() {
   const { t } = useTranslation()
@@ -21,22 +29,22 @@ export default function Home() {
           </div>
           <div className="flex flex-row flex-wrap items-center justify-center gap-8 w-full lg:w-[55%]">
             <div className="flex flex-col items-center">
-              <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
+              <Image src={about1} width={100} height={100} alt="rall workers"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
+              <Image src={about2} width={100} height={100} alt="rall established in"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
+              <Image src={about3} width={100} height={100} alt="rall trucks"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/icons/buildings.png" width={100} height={100} alt="rall buildings"/>
+              <Image src={about4} width={100} height={100} alt="rall buildings"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about4") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
@@ -44,32 +52,32 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/bg1.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg1.jpg')" }} />
 
       <section>
         <h2>{t("common:section1")}</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/truck.png" width={100} height={100} alt="rall international shipping" /></div>
+            <div className="flex items-center w-auto h-32"><Image src={service1} width={100} height={100} alt="rall international shipping" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection1")}</span>
             <p className="text-center line-clamp-3">{ t("home:service1") }</p>
             <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px] border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" /></div>
+            <div className="flex items-center w-auto h-32"><Image src={service2} width={120} height={120} alt="rall dump trucks" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection2")}</span>
             <p className="text-center line-clamp-3">{ t("home:service2") }</p>
             <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" /></div>
+            <div className="flex items-center w-auto h-32"><Image src={service3} width={120} height={120} alt="rall cunstruction" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection3")}</span>
             <p className="text-center line-clamp-3">{ t("home:service3") }</p>
             <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/office.png" width={120} height={120} alt="rall rent" /></div>
+            <div className="flex items-center w-auto h-32"><Image src={service4} width={120} height={120} alt="rall rent" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection4")}</span>
             <p className="text-center line-clamp-3">{ t("home:service4") }</p>
             <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
@@ -77,15 +85,15 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('./images/bg2.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg2.jpg')" }} />
 
       <section id="contact">
         <h2>{t("common:section3")}</h2>
 
         <div className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8">
-          <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-          <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-          <Worker image="p.jpeg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
+          <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
+          <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
+          <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
         </div>
       </section>
 

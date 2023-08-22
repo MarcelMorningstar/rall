@@ -2,6 +2,7 @@ import Layout from "./layout";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Header from "@/components/Header";
+import truck1 from "@/assets/icons/truck1.png"
 
 export default function Page() {
     const { t } = useTranslation()
@@ -15,7 +16,7 @@ export default function Page() {
 
                 <div className="flex flex-row flex-wrap justify-evenly gap-8">
                     <div className="flex flex-col items-center gap-1">
-                        <Image src="/icons/truck1.svg" width={240} height={120} alt='rall truck' />
+                        <Image src={truck1} width={240} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("shipping:category1") }</span>
                     </div>
                 </div>

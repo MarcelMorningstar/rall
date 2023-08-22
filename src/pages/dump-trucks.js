@@ -2,6 +2,10 @@ import Layout from "./layout";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Header from "@/components/Header";
+import material1 from "@/assets/icons/material1.png"
+import material2 from "@/assets/icons/material2.png"
+import material3 from "@/assets/icons/material3.png"
+import material4 from "@/assets/icons/material4.png"
 
 export default function Page() {
     const { t } = useTranslation()
@@ -15,20 +19,20 @@ export default function Page() {
 
                 <div className="flex flex-row flex-wrap justify-evenly gap-8">
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Smiltis</span>
+                        <div className="flex items-center w-auto h-32"><Image src={material1} width={120} height={120} alt='rall truck' /></div>
+                        <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("dump-trucks:category1") }</span>
                     </div>
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Zeme</span>
+                        <div className="flex items-center w-auto h-32"><Image src={material2} width={140} height={140} alt='rall truck' /></div>
+                        <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("dump-trucks:category2") }</span>
                     </div>
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Akmens</span>
+                        <div className="flex items-center w-auto h-32"><Image src={material3} width={80} height={80} alt='rall truck' /></div>
+                        <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("dump-trucks:category3") }</span>
                     </div>
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
-                        <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Cements</span>
+                        <div className="flex items-center w-auto h-32"><Image src={material4} width={110} height={110} alt='rall truck' /></div>
+                        <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("dump-trucks:category4") }</span>
                     </div>
                 </div>
             </section>
