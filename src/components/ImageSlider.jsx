@@ -46,34 +46,10 @@ export default function ImageSlider({ images }) {
             {
                 images.map(image => (
                     <div key={image} className="relative h-80">
-                        <img src={`/images/${image}`} className="w-full h-full px-1.5 object-cover" loading="eager" alt="rall contruction" />
+                        <Image src={`/images/${image}`} className="px-1.5 object-cover" fill priority alt="rall contruction" />
                     </div>
                 ))
             }
-            {/* <div className="relative h-80">
-                <Image src="/images/c2.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80" style={{ width: 200 }}>
-                <Image src="/images/c3.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80">
-                <Image src="/images/c4.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80">
-                <Image src="/images/c5.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80">
-                <Image src="/images/c1.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80">
-                <Image src="/images/c6.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80">
-                <Image src="/images/c7.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div>
-            <div className="relative h-80">
-                <Image src="/images/c8.jpg" className="px-2 object-cover" fill priority alt="rall contruction" />
-            </div> */}
         </Slider>
     )
 }

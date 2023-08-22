@@ -93,7 +93,7 @@ export default function Navbar() {
       <div className="flex flex-row items-center justify-between gap-3 w-full h-16" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row items-end gap-2">
           <Link href="/" className="relative w-28 sm:w-32 h-12 sm:h-16 transition-all duration-500">
-            <img src="/icons/rall.svg" className="w-auto h-full" loading="eager" alt="rall logo" />
+            <Image src="/icons/rall.svg" fill priority alt="rall logo" />
           </Link>
         </div>
 

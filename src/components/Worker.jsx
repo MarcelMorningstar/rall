@@ -8,12 +8,12 @@ export default function Worker({ image, name, position, email, phone }) {
     return (
         <div className="flex flex-col items-center gap-1">
             <div className="relative w-48 h-48 rounded-full" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                <img src={`/images/${image}`} className="w-full h-full rounded-full object-cover" alt="rall worker" />
+                <Image src={`/images/${image}`} fill className="rounded-full object-cover" alt="rall worker" />
                 {
                     (email && phone) && (
-                        <div className={`absolute top-0 flex flex-col items-center justify-between w-full h-full bg-black/50 rounded-full transition-all duration-500 ${ hover ? 'opacity-100' : 'opacity-0' }`}>
+                        <div className={`absolute top-0 flex flex-col items-center justify-between w-full h-full bg-black/50 rounded-full transition-all duration-500 ${ hover ? 'visible opacity-100' : 'invisible opacity-0' }`}>
                             <a href={`mailto:${email}`} className="flex flex-col items-center justify-around w-full h-full text-background hover:text-secondary transition-all duration-500">
-                                <HiOutlineMail className="w-6 h-6  text-inherit" />
+                                <HiOutlineMail className="w-6 h-6 text-inherit" />
                                 <span className="text-base font-medium text-inherit">{ email }</span>
                             </a>
                             <div className="w-3/4 h-1 bg-background"></div>

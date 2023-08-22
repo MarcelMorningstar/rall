@@ -21,22 +21,22 @@ export default function Home() {
           </div>
           <div className="flex flex-row flex-wrap items-center justify-center gap-8 w-full lg:w-[55%]">
             <div className="flex flex-col items-center">
-              <img src="/icons/human.png" width={100} height={100} alt="rall workers"/>
+              <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/icons/march.png" width={100} height={100} alt="rall established in"/>
+              <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
+              <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/icons/buildings.png" width={100} height={100} alt="rall buildings"/>
+              <Image src="/icons/buildings.png" width={100} height={100} alt="rall buildings"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about4") }</span>
               <span className="text-center text-3xl font-bold text-primary">1200</span>
             </div>
@@ -51,25 +51,25 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><img src="/icons/truck.png" width={100} height={100} alt="rall international shipping" /></div>
+            <div className="flex items-center w-auto h-32"><Image src="/icons/truck.png" width={100} height={100} alt="rall international shipping" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection1")}</span>
             <p className="text-center line-clamp-3">{ t("home:service1") }</p>
             <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px] border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><img src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" /></div>
+            <div className="flex items-center w-auto h-32"><Image src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection2")}</span>
             <p className="text-center line-clamp-3">{ t("home:service2") }</p>
             <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><img src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" /></div>
+            <div className="flex items-center w-auto h-32"><Image src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection3")}</span>
             <p className="text-center line-clamp-3">{ t("home:service3") }</p>
             <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><img src="/icons/office.png" width={120} height={120} alt="rall rent" /></div>
+            <div className="flex items-center w-auto h-32"><Image src="/icons/office.png" width={120} height={120} alt="rall rent" /></div>
             <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection4")}</span>
             <p className="text-center line-clamp-3">{ t("home:service4") }</p>
             <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>

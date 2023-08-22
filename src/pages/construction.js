@@ -16,27 +16,27 @@ export default function Page() {
 
                 <div className="flex flex-row flex-wrap justify-evenly gap-8">
                     <div className="flex flex-col items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Dzīvojamās Mājas</span>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Komerciāla</span>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Jaukta Lietojuma</span>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Institucionāla</span>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Rūpnieciska</span>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Ceļi</span>
                     </div>
                 </div>

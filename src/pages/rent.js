@@ -16,15 +16,15 @@ export default function Page() {
 
                 <div className="flex flex-row flex-wrap justify-evenly gap-8">
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Biroja Ēkas</span>
                     </div>
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Dalīts Ofiss</span>
                     </div>
                     <div className="flex flex-col flex-1 items-center justify-center gap-1">
-                        <img src="/icons/truck.png" width={120} height={120} alt='rall truck' />
+                        <Image src="/icons/truck.png" width={120} height={120} alt='rall truck' />
                         <span className="text-2xl font-semibold whitespace-nowrap text-foreground">Individuāls Ofiss</span>
                     </div>
                 </div>
