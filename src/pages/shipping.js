@@ -15,7 +15,7 @@ export default function Page() {
 
                 <div className="flex flex-row flex-wrap justify-evenly gap-8">
                     <div className="flex flex-col items-center gap-1">
-                    <div className="flex items-center w-auto h-32"><Image src="/icons/truck1.png" width={240} height={120} alt='rall truck' /></div>
+                        <div className="flex items-center w-auto h-32"><Image src="/icons/truck1.png" width={240} height={120} alt='rall truck' /></div>
                         <span className="text-2xl font-semibold whitespace-nowrap capitalize text-foreground">{ t("shipping:category1") }</span>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ export default function Worker({ image, name, position, email, phone }) {
     return (
         <div className="flex flex-col items-center gap-1">
             <div className="relative w-48 h-48 rounded-full" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                <Image src={`/images/${image}`} fill className="rounded-full object-cover" alt="rall worker" />
+                <Image src={`/images/${image}`} fill sizes="192px" className="rounded-full object-cover" alt="rall worker" />
                 {
                     (email && phone) && (
                         <div className={`absolute top-0 flex flex-col items-center justify-between w-full h-full bg-black/50 rounded-full transition-all duration-500 ${ hover ? 'visible opacity-100' : 'invisible opacity-0' }`}>

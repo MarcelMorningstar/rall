@@ -46,7 +46,7 @@ export default function ImageSlider({ images }) {
             {
                 images.map(image => (
                     <div key={image} className="relative h-80">
-                        <Image src={`/images/${image}`} className="px-1.5 object-cover" fill priority alt="rall contruction" />
+                        <Image src={`/images/${image}`} className="px-1.5 object-cover" sizes="(max-width: 600px) 100vw, (max-width: 1020px) 50vw, 33vw" fill priority alt="rall contruction" />
                     </div>
                 ))
             }
