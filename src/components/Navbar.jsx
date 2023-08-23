@@ -1,38 +1,12 @@
 import { useEffect, useState } from "react";
 import { useWindowDimensions } from "@/utilities/window";
-import { useRouter } from "next/router";
+import LinkToHash from "./LinkToHash";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import useTranslation from 'next-translate/useTranslation';
 import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-
-function LinkToHash({ to, className, children }) {
-  const router = useRouter()
-  const { pathname } = router
-  const path = to.slice(0, to.indexOf('#'));
-  const hash = to.substring(to.indexOf("#"));
-
-  const scrollTo = () => {
-    if (pathname != path) {
-      sessionStorage.setItem("to", hash);
-      router.replace(path);
-    } else {
-      const element = document.querySelector(hash)
-
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const padding = window.getComputedStyle(element, null).getPropertyValue('padding-top')
-    
-        window.scrollTo(0, rect.top + window.scrollY - parseInt(padding) * 2);
-      }
-    }
-  }
-  
-  return (
-    <button className={className} onClick={() => scrollTo()}>{ children }</button>
-  )
-}
 
 export default function Navbar() {
   const [openMenu1, setOpenMenu1] = useState(false)
@@ -40,7 +14,7 @@ export default function Navbar() {
   const dimensions = useWindowDimensions()
   const router = useRouter()
   const { pathname, locale, locales, asPath, query } = router
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('common')
 
   const handleLanguage = (e) => {
     const language = e.target.value;
@@ -102,30 +76,20 @@ export default function Navbar() {
             <div className="flex flex-row gap-4">
               <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>
-                  <span className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}>{ t("section1") }</span>
+                <span className={`relative font-medium text-primary after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}><LinkToHash to='/#services' className="whitespace-nowrap uppercase">{ t("section1") }</LinkToHash></span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
-                    <Link href='/shipping'>
+                    <LinkToHash to='/#shipping' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("subsection1") }</span>
                       </MenuItem>
-                    </Link>
-                    <Link href='/dump-trucks'>
+                    </LinkToHash>
+                    <LinkToHash to='/#dump-trucks' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("subsection2") }</span>
                       </MenuItem>
-                    </Link>
-                    <Link href='/construction'>
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection3") }</span>
-                      </MenuItem>
-                    </Link>
-                    <Link href='/rent'>
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection4") }</span>
-                      </MenuItem>
-                    </Link>
+                    </LinkToHash>
                   </ul>
                 </MenuList>
               </Menu>
@@ -140,29 +104,19 @@ export default function Navbar() {
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
-                    <span className="text-foreground text-base font-semibold capitalize">{ t("section1") }</span>
-                    <Link href='/shipping'>
+                    <LinkToHash to='/#services'><span className="text-foreground text-base font-semibold capitalize">{ t("section1") }</span></LinkToHash>
+                    <LinkToHash to='/#shipping' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("subsection1") }</span>
                       </MenuItem>
-                    </Link>
-                    <Link href='/dump-trucks'>
+                    </LinkToHash>
+                    <LinkToHash to='/#dump-trucks' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("subsection2") }</span>
                       </MenuItem>
-                    </Link>
-                    <Link href='/construction'>
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection3") }</span>
-                      </MenuItem>
-                    </Link>
-                    <Link href='/rent'>
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection4") }</span>
-                      </MenuItem>
-                    </Link>
+                    </LinkToHash>
                     <hr className="my-3" />
-                    <span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span>
+                    <Link href="/"><span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span></Link>
                     <LinkToHash to='/#about' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("section2") }</span>

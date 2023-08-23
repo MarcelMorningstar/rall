@@ -46,33 +46,26 @@ export default function Home() {
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg1.jpg')" }} />
 
-      <section>
+      <section id="services" className="max-xl:px-0">
         <h2>{t("common:section1")}</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/truck.png" width={100} height={100} alt="rall international shipping" /></div>
-            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection1")}</span>
-            <p className="text-center line-clamp-3">{ t("home:service1") }</p>
-            <Link href="/shipping" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px] border-primary">{ t("home:button") }</Link>
+        <div id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
+          <div className="relative flex-[2] h-96">
+            <Image src='/images/shipping.png' className="object-cover" fill alt='rall shiping' />
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/dump-truck.png" width={120} height={120} alt="rall dump trucks" /></div>
-            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection2")}</span>
-            <p className="text-center line-clamp-3">{ t("home:service2") }</p>
-            <Link href="/dump-trucks" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
+          <div className="absolute left-0 z-10 xl:static flex-[1] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent">
+            <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
+            <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/constraction.png" width={120} height={120} alt="rall cunstruction" /></div>
-            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection3")}</span>
-            <p className="text-center line-clamp-3">{ t("home:service3") }</p>
-            <Link href="/construction" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
+        </div>
+
+        <div id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
+          <div className="absolute right-0 z-10 xl:static flex-[1] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent">
+            <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
+            <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center w-auto h-32"><Image src="/icons/office.png" width={120} height={120} alt="rall rent" /></div>
-            <span className="text-center text-3xl font-bold whitespace-nowrap capitalize text-foreground">{t("common:subsection4")}</span>
-            <p className="text-center line-clamp-3">{ t("home:service4") }</p>
-            <Link href="/rent" className="flex items-center justify-center w-48 h-12 text-lg font-semibold transition-all duration-500 text-primary hover:text-secondary hover:bg-primary border-[3px]	 border-primary">{ t("home:button") }</Link>
+          <div className="relative flex-[2] h-96">
+            <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shiping' />
           </div>
         </div>
       </section>

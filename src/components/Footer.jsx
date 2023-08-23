@@ -1,3 +1,4 @@
+import LinkToHash from "./LinkToHash";
 import Link from "next/link";
 import useTranslation from 'next-translate/useTranslation';
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
@@ -9,19 +10,17 @@ export default function Footer() {
     <footer className="absolute bottom-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-y-6 w-full h-[428px] lg:h-60 py-10 bg-foreground" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
       <div className="flex flex-col lg:flex-row gap-x-8 gap-y-6">
         <div className="flex flex-col items-center lg:items-start gap-2">
-          <span className="text-2xl font-medium text-background uppercase">{ t("section1.5") }</span>
+          <Link href="/"><span className="text-2xl font-medium text-background uppercase">{ t("section1.5") }</span></Link>
           <div className="flex flex-col items-center lg:items-start gap-[2px]">
-            <Link href="/#about" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section2") }</Link>
-            <Link href="/#contact" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section3") }</Link>
+            <LinkToHash to="/#about" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section2") }</LinkToHash>
+            <LinkToHash to="/#contact" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section3") }</LinkToHash>
           </div>
         </div>
         <div className="flex flex-col items-center lg:items-start gap-2">
-          <span className="text-2xl font-medium text-background uppercase">{ t("section1") }</span>
+          <LinkToHash to="/#services"><span className="text-2xl font-medium text-background uppercase">{ t("section1") }</span></LinkToHash>
           <div className="flex flex-col items-center lg:items-start gap-[2px]">
-            <Link href='/shipping' className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("subsection1") }</Link>
-            <Link href='/dump-trucks' className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("subsection2") }</Link>
-            <Link href='/construction' className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("subsection3") }</Link>
-            <Link href='/rent' className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("subsection4") }</Link>
+            <LinkToHash to='/#shipping' className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("subsection1") }</LinkToHash>
+            <LinkToHash to='/#dump-trucks' className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("subsection2") }</LinkToHash>
           </div>
         </div>
       </div>
