@@ -13,13 +13,10 @@ export default function LinkToHash({ to, className, children }) {
         } else {
             const element = document.querySelector(hash)
 
-            console.log(element)
-
             if (element) {
                 const rect = element.getBoundingClientRect();
-                const padding = window.getComputedStyle(element, null).getPropertyValue('padding-top')
-            
-                window.scrollTo(0, rect.top + window.scrollY - parseInt(padding) * 2);
+
+                window.scrollTo(0, rect.top + window.scrollY - 110);
             }
         }
     }
