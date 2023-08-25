@@ -1,5 +1,4 @@
 import Layout from "./layout"
-import Link from "next/link"
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import CarouselHeader from "@/components/CarouselHeader"
@@ -19,26 +18,21 @@ export default function Home() {
           <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]">
             <p className="text-justify">{ t("home:about-description") }</p>
           </div>
-          <div className="flex flex-row flex-wrap items-center justify-center gap-8 w-full lg:w-[55%]">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-10 w-full lg:w-[55%]">
             <div className="flex flex-col items-center">
               <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
-              <span className="text-center text-3xl font-bold text-primary">1200</span>
+              <span className="text-center text-3xl font-bold text-primary">80+</span>
             </div>
             <div className="flex flex-col items-center">
               <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
-              <span className="text-center text-3xl font-bold text-primary">1200</span>
+              <span className="text-center text-3xl font-bold text-primary">1996</span>
             </div>
             <div className="flex flex-col items-center">
               <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
-              <span className="text-center text-3xl font-bold text-primary">1200</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <Image src="/icons/buildings.png" width={100} height={100} alt="rall buildings"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about4") }</span>
-              <span className="text-center text-3xl font-bold text-primary">1200</span>
+              <span className="text-center text-3xl font-bold text-primary">30+</span>
             </div>
           </div>
         </div>
@@ -50,21 +44,21 @@ export default function Home() {
         <h2>{t("common:section1")}</h2>
 
         <div id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          <div className="relative flex-[2] h-96">
+          <div className="relative flex-[1.8] h-96">
             <Image src='/images/shipping.png' className="object-cover" fill alt='rall shiping' />
           </div>
-          <div className="absolute left-0 z-10 xl:static flex-[1] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent">
+          <div className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent">
             <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
             <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
           </div>
         </div>
 
         <div id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          <div className="absolute right-0 z-10 xl:static flex-[1] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent">
+          <div className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent">
             <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
             <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
           </div>
-          <div className="relative flex-[2] h-96">
+          <div className="relative flex-[1.8] h-96">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shiping' />
           </div>
         </div>
@@ -72,8 +66,18 @@ export default function Home() {
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg2.jpg')" }} />
 
-      <section id="contact">
+      <section id="work">
         <h2>{t("common:section3")}</h2>
+
+        <div>
+          
+        </div>
+      </section>
+
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg3.jpg')" }} />
+
+      <section id="contact">
+        <h2>{t("common:section4")}</h2>
 
         <div className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8">
           <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
