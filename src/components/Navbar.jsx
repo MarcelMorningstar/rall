@@ -95,7 +95,8 @@ export default function Navbar() {
               </Menu>
 
               <LinkToHash to="/#about" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section2") }</LinkToHash>
-              <LinkToHash to="/#contact" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section3") }</LinkToHash>
+              <LinkToHash to="/#work" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section3") }</LinkToHash>
+              <LinkToHash to="/#contact" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section4") }</LinkToHash>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
@@ -122,9 +123,14 @@ export default function Navbar() {
                         <span className="text-black capitalize">{ t("section2") }</span>
                       </MenuItem>
                     </LinkToHash>
-                    <LinkToHash to='/#contact' className="block">
+                    <LinkToHash to='/#work' className="block">
                       <MenuItem>
                         <span className="text-black capitalize">{ t("section3") }</span>
+                      </MenuItem>
+                    </LinkToHash>
+                    <LinkToHash to='/#contact' className="block">
+                      <MenuItem>
+                        <span className="text-black capitalize">{ t("section4") }</span>
                       </MenuItem>
                     </LinkToHash>
                   </ul>

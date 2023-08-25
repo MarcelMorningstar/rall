@@ -13,7 +13,8 @@ export default function Footer() {
           <Link href="/"><span className="text-2xl font-medium text-background uppercase">{ t("section1.5") }</span></Link>
           <div className="flex flex-col items-center lg:items-start gap-[2px]">
             <LinkToHash to="/#about" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section2") }</LinkToHash>
-            <LinkToHash to="/#contact" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section3") }</LinkToHash>
+            <LinkToHash to="/#work" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section3") }</LinkToHash>
+            <LinkToHash to="/#contact" className="text-base font-normal whitespace-nowrap capitalize transition-all duration-300 text-background hover:text-secondary">{ t("section4") }</LinkToHash>
           </div>
         </div>
         <div className="flex flex-col items-center lg:items-start gap-2">
