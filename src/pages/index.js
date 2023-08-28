@@ -1,4 +1,4 @@
-import { useWindowDimensions } from "@/utilities/window";
+import React, { useEffect, useState } from "react";
 import Layout from "./layout"
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
@@ -8,7 +8,22 @@ import { motion } from 'framer-motion'
 
 export default function Home() {
   const { t } = useTranslation()
-  const dimensions = useWindowDimensions()
+  const [dimensions, setDimensions] = useState(null)
+
+  function handleResize() {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  };
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
 
   const container2 = {
     hidden: { opacity: 0, scale: 0 },
@@ -52,22 +67,24 @@ export default function Home() {
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
           {
-            dimensions.width > 1023 ? (
-              <motion.div 
-                className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
-                initial={{ x: -250, opacity: 0, scale: 0 }}
-                whileInView={{ x: 0, opacity: 1, scale: 1, transition: { duration: .5 } }}
-              >
-                <p className="text-justify">{ t("home:about-description") }</p>
-              </motion.div>
-            ) : (
-              <motion.div 
-                className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1, transition: { duration: .4 } }}
-              >
-                <p className="text-justify">{ t("home:about-description") }</p>
-              </motion.div>
+            dimensions && (
+              dimensions.width > 1023 ? (
+                <motion.div 
+                  className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
+                  initial={{ x: -250, opacity: 0, scale: 0 }}
+                  whileInView={{ x: 0, opacity: 1, scale: 1, transition: { duration: .5 } }}
+                >
+                  <p className="text-justify">{ t("home:about-description") }</p>
+                </motion.div>
+              ) : (
+                <motion.div 
+                  className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1, transition: { duration: .4 } }}
+                >
+                  <p className="text-justify">{ t("home:about-description") }</p>
+                </motion.div>
+              )
             )
           }
 
@@ -102,73 +119,60 @@ export default function Home() {
         <h2>{t("common:section1")}</h2>
 
         <div id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          <div className="relative flex-[1.8] h-96">
+          <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
             <Image src='/images/shipping.png' className="object-cover" fill alt='rall shiping' />
           </div>
-          {/* <motion.div 
-            className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-            variants={container3}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-            <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
-          </motion.div> */}
           {
-            dimensions.width > 1279 ? (
-              <motion.div 
-                className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={{ x: 400, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1, transition: { duration: .4 } }}
-              >
-                <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
-              </motion.div>
-            ) : (
-              <motion.div 
-                className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={{ x: -210, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1, transition: { duration: .4 } }}
-              >
-                <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
-              </motion.div>
+            dimensions && (
+              dimensions.width > 1279 ? (
+                <motion.div 
+                  className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                  initial={{ x: -500, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
+                >
+                  <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
+                  <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
+                </motion.div>
+              ) : (
+                <motion.div 
+                  className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                  initial={dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
+                >
+                  <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
+                  <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
+                </motion.div>
+              )
             )
           }
+          
         </div>
 
         <div id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          {/* <motion.div 
-            className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-            variants={container4}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-            <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
-          </motion.div> */}
           {
-            dimensions.width > 1279 ? (
-              <motion.div 
-                className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={{ x: -210, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1, transition: { duration: .4 } }}
-              >
-                <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
-              </motion.div>
-            ) : (
-              <motion.div 
-                className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={{ x: 400, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1, transition: { duration: .4 } }}
-              >
-                <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
-              </motion.div>
+            dimensions && (
+              dimensions.width > 1279 ? (
+                <motion.div 
+                  className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                  initial={{ x: 500, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
+                >
+                  <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
+                  <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
+                </motion.div>
+              ) : (
+                <motion.div 
+                  className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                  initial={dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
+                >
+                  <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
+                  <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
+                </motion.div>
+              )
             )
           }
-          <div className="relative flex-[1.8] h-96">
+          <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shiping' />
           </div>
         </div>
