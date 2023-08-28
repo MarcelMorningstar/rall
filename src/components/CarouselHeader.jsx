@@ -5,7 +5,7 @@ export default function CarouselHeader({ t }) {
     const dimensions = useWindowDimensions()
 
     return (
-        <div className="relative w-full transition-all" style={dimensions.width > 1100 ? { height: 'calc(100vh - 111px)' } : dimensions.width > 500 ? { height: 'calc(80vh - 111px)' } : { height: 'calc(50vh - 111px)' }}>
+        <div className="relative w-full transition-all" style={dimensions.width > 1000 ? { height: 'calc(100vh - 111px)' } : dimensions.width > 613 ? { height: 'calc(70vh - 111px)' } : { height: 'calc(50vh - 111px)' }}>
             <Carousel autoplay autoplayDelay={7000} transition={{ duration: 1.2 }} loop navigation={({ setActiveIndex, activeIndex, length }) => (
                 <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
                     {new Array(length).fill("").map((_, i) => (

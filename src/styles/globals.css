@@ -10,10 +10,12 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth !important;
 }
 
 body {
+  overflow-x: hidden;
   position: relative;
   min-height: 100vh;
   background-color: var(--background);
@@ -21,11 +23,12 @@ body {
 }
 
 main {
+  overflow-x: hidden;
   padding-top: 111px;
   padding-bottom: 240px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1023px) {
   main {
     padding-bottom: 428px;
   }
@@ -35,7 +38,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 48px min(16vw, 256px);
+  padding: 64px min(16vw, 256px);
 }
 
 h2 {
