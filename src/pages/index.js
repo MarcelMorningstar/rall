@@ -113,14 +113,14 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg1.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg1.jpg')" }} />
 
       <section id="services" className="max-xl:px-0">
         <h2>{t("common:section1")}</h2>
 
         <div id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
           <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
-            <Image src='/images/shipping.png' className="object-cover" fill alt='rall shiping' />
+            <Image src='/images/shipping.jpg' className="object-cover" fill alt='rall shiping' />
           </div>
           {
             dimensions && (
@@ -178,7 +178,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg2.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg2.jpg')" }} />
 
       <section id="work">
         <h2>{t("common:section3")}</h2>
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ "backgroundImage": "url('/images/bg3.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg3.jpg')" }} />
 
       <section id="contact">
         <h2>{t("common:section4")}</h2>
