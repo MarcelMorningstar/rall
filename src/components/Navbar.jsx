@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="flex flex-row gap-3">
           <a href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2">
             <HiOutlineMail className="w-5 h-5 text-primary"/>
-            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">info@rall.lv</span>
+            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">{ t("email") }</span>
           </a>
           <a href="tel:+37128596185" className="flex flex-row items-center gap-2">
             <HiOutlinePhone className="w-5 h-5 text-primary"/>
