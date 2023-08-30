@@ -1,48 +1,96 @@
 import React, { useEffect, useState } from "react";
+import { useWindowDimensions } from "@/utilities/window";
 import Layout from "./layout"
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import CarouselHeader from "@/components/CarouselHeader"
 import Card from "@/components/Card";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const { t } = useTranslation()
-  const [dimensions, setDimensions] = useState(null)
-
-  function handleResize() {
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-  };
+  const dimensions = useWindowDimensions()
+  const [IconContainer, setIconContainer] = useState(null)
+  const ServiceAnimation1 = useAnimation()
+  const ServiceAnimation2 = useAnimation()
+  const [ServiceRef1, Service1inView] = useInView({ threshold: 0.6 })
+  const [ServiceRef2, Service2inView] = useInView({ threshold: 0.6 })
 
   useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, [])
-
-  const IconContainer = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.4,
-        staggerChildren: 0.2
+    if (dimensions) {
+      if (dimensions.width > 1023) {
+        setIconContainer({
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              delayChildren: 0.5,
+              staggerChildren: 0.2
+            }
+          }
+        })
+      } else {
+        setIconContainer({
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              delayChildren: 0.1,
+              staggerChildren: 0.2
+            }
+          }
+        })
       }
+    }
+  }, [dimensions]);
+
+  useEffect(() => {
+    if (dimensions) {
+      if (Service1inView) {
+        ServiceAnimation1.start({
+          x: 0,
+          opacity: 1,
+          transition: { duration: 0.5 },
+        });
+      } else {
+        ServiceAnimation1.start(dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
+      }
+    }
+  }, [dimensions, ServiceAnimation1, Service1inView]);
+
+  useEffect(() => {
+    if (dimensions) {
+      if (Service2inView) {
+        ServiceAnimation2.start({
+          x: 0,
+          opacity: 1,
+          transition: { duration: 0.5 },
+        });
+      } else {
+        ServiceAnimation2.start(dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
+      }
+    }
+  }, [dimensions, ServiceAnimation2, Service2inView]);
+
+  const IconItem = {
+    hidden: { y: 50, opacity: 0, scale: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1
     }
   };
 
-  const IconItem = {
-    hidden: { y: 20, opacity: 0 },
+  const CardContainer = {
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
-      opacity: 1
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.2
+      }
     }
   };
 
@@ -60,7 +108,8 @@ export default function Home() {
                 <motion.div 
                   className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
                   initial={{ x: -250, opacity: 0, scale: 0 }}
-                  whileInView={{ x: 0, opacity: 1, scale: 1, transition: { duration: .5 } }}
+                  transition={{ duration: .6 }}
+                  whileInView={{ x: 0, opacity: 1, scale: 1 }}
                 >
                   <p className="text-justify">{ t("home:about-description") }</p>
                 </motion.div>
@@ -68,7 +117,8 @@ export default function Home() {
                 <motion.div 
                   className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
                   initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1, transition: { duration: .4 } }}
+                  transition={{ duration: .4 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                 >
                   <p className="text-justify">{ t("home:about-description") }</p>
                 </motion.div>
@@ -76,28 +126,33 @@ export default function Home() {
             )
           }
 
-          <motion.div 
-            className="flex flex-row flex-wrap items-center justify-center gap-10 w-full lg:w-[55%]"
-            variants={IconContainer}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <motion.div className="flex flex-col items-center" variants={IconItem}>
-              <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
-              <span className="text-center text-3xl font-bold text-primary">80+</span>
-            </motion.div>
-            <motion.div className="flex flex-col items-center" variants={IconItem}>
-              <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
-              <span className="text-center text-3xl font-bold text-primary">1996</span>
-            </motion.div>
-            <motion.div className="flex flex-col items-center" variants={IconItem}>
-              <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
-              <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
-              <span className="text-center text-3xl font-bold text-primary">30+</span>
-            </motion.div>
-          </motion.div>
+          {
+            dimensions && (
+              <motion.div 
+                className="flex flex-row flex-wrap items-center justify-center gap-10 w-full lg:w-[55%]"
+                variants={IconContainer}
+                initial="hidden"
+                whileInView="visible"
+              >
+                <motion.div className="flex flex-col items-center" variants={IconItem}>
+                  <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
+                  <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
+                  <span className="text-center text-3xl font-bold text-primary">80+</span>
+                </motion.div>
+                <motion.div className="flex flex-col items-center" variants={IconItem}>
+                  <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
+                  <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
+                  <span className="text-center text-3xl font-bold text-primary">1996</span>
+                </motion.div>
+                <motion.div className="flex flex-col items-center" variants={IconItem}>
+                  <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
+                  <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
+                  <span className="text-center text-3xl font-bold text-primary">30+</span>
+                </motion.div>
+              </motion.div>
+            )
+          }
+          
         </div>
       </section>
 
@@ -106,61 +161,39 @@ export default function Home() {
       <section id="services" className="max-xl:px-0">
         <h2>{t("common:section1")}</h2>
 
-        <div id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
+        <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
+          <div className="relative z-0 xl:z-20 flex-[1.8] h-96 lg:h-80">
             <Image src='/images/shipping.jpg' className="object-cover" fill alt='rall shiping' />
           </div>
           {
             dimensions && (
-              dimensions.width > 1279 ? (
-                <motion.div 
-                  className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                  initial={{ x: -500, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
-                >
-                  <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                  <p className=" text-background xl:text-black">{ t("home:service1") }</p>
-                </motion.div>
-              ) : (
-                <motion.div 
-                  className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                  initial={dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
-                >
-                  <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                  <p className=" text-background xl:text-black">{ t("home:service1") }</p>
-                </motion.div>
-              )
+              <motion.div 
+                className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                initial={dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
+                animate={ServiceAnimation1}
+              >
+                <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
+                <p className=" text-background xl:text-black">{ t("home:service1") }</p>
+              </motion.div>
             )
           }
           
         </div>
 
-        <div id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
+        <div ref={ServiceRef2} id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
           {
             dimensions && (
-              dimensions.width > 1279 ? (
-                <motion.div 
-                  className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                  initial={{ x: 500, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
-                >
-                  <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                  <p className="text-right text-background xl:text-black">{ t("home:service2") }</p>
-                </motion.div>
-              ) : (
-                <motion.div 
-                  className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                  initial={dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
-                >
-                  <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                  <p className="text-right text-background xl:text-black">{ t("home:service2") }</p>
-                </motion.div>
-              )
+              <motion.div 
+                className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                initial={dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
+                animate={ServiceAnimation2}
+              >
+                <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
+                <p className="text-right text-background xl:text-black">{ t("home:service2") }</p>
+              </motion.div>
             )
           }
-          <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
+          <div className="relative z-0 xl:z-20 flex-[1.8] h-96 lg:h-80">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shiping' />
           </div>
         </div>
@@ -172,10 +205,23 @@ export default function Home() {
         <h2>{t("common:section3")}</h2>
 
         <div className="flex flex-col items-center gap-8">
-          <p className="text-center" style={{ padding: "0 clamp(0rem, -35.7143rem + 57.1429vw, 25rem)" }}>Mēs aicinām CE kategorijas autovadītājus pievienoties mūsu komandai darbam Eiropas Savienības un NVS valstīs. Piedāvājam darbu arī autovadītājiem no citām valstīm (Ukrainas, Baltkrievijas, Krievijas un citām valstīm).</p>
+          <motion.p 
+            className="text-center" 
+            style={{ padding: "0 clamp(0rem, -35.7143rem + 57.1429vw, 25rem)" }}
+            initial={{ y: 100, opacity: 0 }}
+            transition={{ duration: .4 }}
+            whileInView={{ y: 0, opacity: 1 }}
+          >
+            Mēs aicinām CE kategorijas autovadītājus pievienoties mūsu komandai darbam Eiropas Savienības un NVS valstīs. Piedāvājam darbu arī autovadītājiem no citām valstīm (Ukrainas, Baltkrievijas, Krievijas un citām valstīm).
+          </motion.p>
         
-          <div className="flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-8 lg:gap-16 w-full">
-            <Card title={"Prasības"}>
+          <motion.div 
+            className="flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-8 lg:gap-16 w-full"
+            variants={CardContainer}
+            initial="hidden"
+            whileInView="visible"
+          >
+            <Card title={"Prasības"} directionLeft={true}>
               <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
                 <li>Lorem ipsum dolor sit amet elit.</li>
                 <li>Lorem ipsum dolor sit amet consectetur elit.</li>
@@ -185,7 +231,7 @@ export default function Home() {
               </ul>
             </Card>
 
-            <Card title={"Mēs nodrošinām"}>
+            <Card title={"Mēs nodrošinām"} directionLeft={false}>
               <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
                 <li>Lorem ipsum dolor sit amet consectetur el.</li>
                 <li>Lorem ipsum dolor sit elit.</li>
@@ -193,7 +239,7 @@ export default function Home() {
                 <li>Lorem ipsum dolor sit amet consectetur elit.</li>
               </ul>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -203,7 +249,10 @@ export default function Home() {
         <h2>{t("common:section4")}</h2>
 
         <div className="flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-8 lg:gap-16 w-full">
-          <Card title={<div className="flex flex-col items-center"><Image src="/icons/truck.png" width={72} height={72} alt="contact rall truck" />{t("common:subsection1")}</div>}>
+          <Card 
+            title={<div className="flex flex-col items-center"><Image src="/icons/truck.png" width={72} height={72} alt="contact rall truck" />{t("common:subsection1")}</div>}
+            directionLeft={true}
+          >
             <ul className="text-center text-lg font-light">
               <li className="mt-2">
                 <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Zigmārs Rampāns</span>
@@ -216,7 +265,10 @@ export default function Home() {
             </ul>
           </Card>
 
-          <Card title={<div className="flex flex-col items-center"><Image src="/icons/dump-truck.png" width={72} height={72} alt="contact rall dump truck" />{t("common:subsection2")}</div>}>
+          <Card 
+            title={<div className="flex flex-col items-center"><Image src="/icons/dump-truck.png" width={72} height={72} alt="contact rall dump truck" />{t("common:subsection2")}</div>}
+            directionLeft={false}
+          >
             <ul className="text-center text-lg font-light">
               <li className="mt-2">
                 <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Arnolds Laizāns</span>
