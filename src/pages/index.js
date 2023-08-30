@@ -3,7 +3,8 @@ import Layout from "./layout"
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import CarouselHeader from "@/components/CarouselHeader"
-import Worker from "@/components/Worker"
+import Card from "@/components/Card";
+import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { motion } from 'framer-motion'
 
 export default function Home() {
@@ -25,7 +26,7 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, [])
 
-  const container2 = {
+  const IconContainer = {
     hidden: { opacity: 0, scale: 0 },
     visible: {
       opacity: 1,
@@ -37,26 +38,13 @@ export default function Home() {
     }
   };
 
-  const item = {
+  const IconItem = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1
     }
   };
-
-  const container5 = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
 
   return (
     <Layout>
@@ -90,21 +78,21 @@ export default function Home() {
 
           <motion.div 
             className="flex flex-row flex-wrap items-center justify-center gap-10 w-full lg:w-[55%]"
-            variants={container2}
+            variants={IconContainer}
             initial="hidden"
             whileInView="visible"
           >
-            <motion.div className="flex flex-col items-center" variants={item}>
+            <motion.div className="flex flex-col items-center" variants={IconItem}>
               <Image src="/icons/human.png" width={100} height={100} alt="rall workers"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about1") }</span>
               <span className="text-center text-3xl font-bold text-primary">80+</span>
             </motion.div>
-            <motion.div className="flex flex-col items-center" variants={item}>
+            <motion.div className="flex flex-col items-center" variants={IconItem}>
               <Image src="/icons/march.png" width={100} height={100} alt="rall established in"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about2") }</span>
               <span className="text-center text-3xl font-bold text-primary">1996</span>
             </motion.div>
-            <motion.div className="flex flex-col items-center" variants={item}>
+            <motion.div className="flex flex-col items-center" variants={IconItem}>
               <Image src="/icons/truck.png" width={100} height={100} alt="rall trucks"/>
               <span className="text-center text-xl font-semibold whitespace-nowrap uppercase text-foreground">{ t("home:about3") }</span>
               <span className="text-center text-3xl font-bold text-primary">30+</span>
@@ -131,7 +119,7 @@ export default function Home() {
                   whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
                 >
                   <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                  <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
+                  <p className=" text-background xl:text-black">{ t("home:service1") }</p>
                 </motion.div>
               ) : (
                 <motion.div 
@@ -140,7 +128,7 @@ export default function Home() {
                   whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
                 >
                   <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                  <p className=" text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service1") }</p>
+                  <p className=" text-background xl:text-black">{ t("home:service1") }</p>
                 </motion.div>
               )
             )
@@ -158,7 +146,7 @@ export default function Home() {
                   whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
                 >
                   <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                  <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
+                  <p className="text-right text-background xl:text-black">{ t("home:service2") }</p>
                 </motion.div>
               ) : (
                 <motion.div 
@@ -167,7 +155,7 @@ export default function Home() {
                   whileInView={{ x: 0, opacity: 1, transition: { duration: .5 } }}
                 >
                   <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                  <p className="text-right text-background xl:text-black" style={{ fontSize: 'clamp(0.75rem, 0.525rem + 1.2vw, 1.125rem)' }}>{ t("home:service2") }</p>
+                  <p className="text-right text-background xl:text-black">{ t("home:service2") }</p>
                 </motion.div>
               )
             )
@@ -183,8 +171,29 @@ export default function Home() {
       <section id="work">
         <h2>{t("common:section3")}</h2>
 
-        <div>
-          
+        <div className="flex flex-col items-center gap-8">
+          <p className="text-center" style={{ padding: "0 clamp(0rem, -35.7143rem + 57.1429vw, 25rem)" }}>Mēs aicinām CE kategorijas autovadītājus pievienoties mūsu komandai darbam Eiropas Savienības un NVS valstīs. Piedāvājam darbu arī autovadītājiem no citām valstīm (Ukrainas, Baltkrievijas, Krievijas un citām valstīm).</p>
+        
+          <div className="flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-8 lg:gap-16 w-full">
+            <Card title={"Prasības"}>
+              <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
+                <li>Lorem ipsum dolor sit amet elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum sit amet consectetur elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+              </ul>
+            </Card>
+
+            <Card title={"Mēs nodrošinām"}>
+              <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
+                <li>Lorem ipsum dolor sit amet consectetur el.</li>
+                <li>Lorem ipsum dolor sit elit.</li>
+                <li>Lorem ipsum dolor sit amet elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+              </ul>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -193,16 +202,29 @@ export default function Home() {
       <section id="contact">
         <h2>{t("common:section4")}</h2>
 
-        <motion.div 
-          className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8"
-          variants={container5}
-          initial="hidden"
-          whileInView="visible"
-        >
-          <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-          <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-          <Worker image="p.jpg" name="Iveta Pjankova" position="CEO" email="fake@gmail.com" phone="+31126521385" />
-        </motion.div>
+        <div className="flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-8 lg:gap-16 w-full">
+          <Card title={<div className="flex flex-col items-center"><Image src="/icons/truck.png" width={72} height={72} alt="contact rall truck" />{t("common:subsection1")}</div>}>
+            <ul className="text-center text-lg font-light">
+              <li className="mt-2">
+                <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Zigmārs Rampāns</span>
+                <a href="tel:+37129181831" className="flex flex-row gap-1 items-center justify-center text-base text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span>+37129181831</span></a>
+              </li>
+              <li className="mt-2">
+                <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Konstanīns Savčenko</span>
+                <a href="tel:+37126114458" className="flex flex-row gap-1 items-center justify-center text-base text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span>+37126114458</span></a>
+              </li>
+            </ul>
+          </Card>
+
+          <Card title={<div className="flex flex-col items-center"><Image src="/icons/dump-truck.png" width={72} height={72} alt="contact rall dump truck" />{t("common:subsection2")}</div>}>
+            <ul className="text-center text-lg font-light">
+              <li className="mt-2">
+                <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Arnolds Laizāns</span>
+                <a href="tel:+37129477689" className="flex flex-row gap-1 items-center justify-center text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span  style={{ fontSize: "clamp(0.8125rem, 0.25rem + 3vw, 1rem)" }} >+37129477689</span></a>
+              </li>
+            </ul>
+          </Card>
+        </div>
       </section>
 
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4478106.893429736!2d25.408669955440143!3d56.767423135554246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c2160751325b9d%3A0x92480e3af5b843de!2sRall%20%2C%20SIA!5e0!3m2!1sen!2slv!4v1692030117310!5m2!1sen!2slv" className="w-full h-80" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
