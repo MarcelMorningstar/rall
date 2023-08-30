@@ -13,8 +13,8 @@ export default function Layout({ children }) {
     <div className={inter.className}>
       <Head>
           <title>RALL</title>
-          <link href="favicon.ico" type="image/x-icon" />
-          <meta name='discription' content={t("home:about-description")} />
+          <link rel="icon" href="favicon.ico" type="image/x-icon" />
+          <meta name='description' content={t("home:about-description")} />
       </Head>
       <Navbar />
       <main>{children}</main>

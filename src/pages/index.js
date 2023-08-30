@@ -163,7 +163,7 @@ export default function Home() {
 
         <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
           <div className="relative z-0 xl:z-20 flex-[1.8] h-96 lg:h-80">
-            <Image src='/images/shipping.jpg' className="object-cover" fill alt='rall shiping' />
+            <Image src='/images/shipping.jpg' className="object-cover" fill alt='rall shipping' />
           </div>
           {
             dimensions && (
@@ -194,7 +194,7 @@ export default function Home() {
             )
           }
           <div className="relative z-0 xl:z-20 flex-[1.8] h-96 lg:h-80">
-            <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shiping' />
+            <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shipping' />
           </div>
         </div>
       </section>
