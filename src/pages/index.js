@@ -5,6 +5,7 @@ import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import CarouselHeader from "@/components/CarouselHeader"
 import Card from "@/components/Card";
+import { Button, Dialog, DialogHeader, DialogBody, DialogFooter } from "@material-tailwind/react";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from "react-intersection-observer";
@@ -17,6 +18,11 @@ export default function Home() {
   const ServiceAnimation2 = useAnimation()
   const [ServiceRef1, Service1inView] = useInView({ threshold: 0.6 })
   const [ServiceRef2, Service2inView] = useInView({ threshold: 0.6 })
+  const [service1Open, setService1Open] = useState(null);
+  const [service2Open, setService2Open] = useState(false);
+
+  const handleService1Open = () => setService1Open(!service1Open);
+  const handleService2Open = () => setService2Open(!service2Open);
 
   useEffect(() => {
     if (dimensions) {
@@ -162,7 +168,7 @@ export default function Home() {
         <h2>{t("common:section1")}</h2>
 
         <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          <div className="relative z-0 xl:z-20 flex-[1.8] h-96 lg:h-80">
+          <div className="float-left relative z-0 xl:z-20 flex-[1.8] h-96">
             <Image src='/images/shipping.jpg' className="object-cover" fill alt='rall shipping' />
           </div>
           {
@@ -171,9 +177,21 @@ export default function Home() {
                 className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
                 initial={dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
                 animate={ServiceAnimation1}
+                onClick={handleService1Open}
               >
                 <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                <p className=" text-background xl:text-black">{ t("home:service1") }</p>
+                <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
+                <Dialog open={service1Open} handler={handleService1Open} size="xs">
+                  <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
+                  <DialogBody>
+                    <p>{ t("home:service1") }</p>
+                  </DialogBody>
+                  <DialogFooter>
+                    <Button variant="gradient" color="gray" onClick={handleService1Open}>
+                      <span>Confirm</span>
+                    </Button>
+                  </DialogFooter>
+                </Dialog>
               </motion.div>
             )
           }
@@ -187,13 +205,26 @@ export default function Home() {
                 className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
                 initial={dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
                 animate={ServiceAnimation2}
+                onClick={handleService2Open}
               >
                 <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                <p className="text-right text-background xl:text-black">{ t("home:service2") }</p>
+                <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
+                
+                <Dialog open={service2Open} handler={handleService2Open} size="xs">
+                  <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
+                  <DialogBody>
+                    <p>{ t("home:service1") }</p>
+                  </DialogBody>
+                  <DialogFooter>
+                    <Button variant="gradient" color="gray" onClick={handleService2Open}>
+                      <span>Confirm</span>
+                    </Button>
+                  </DialogFooter>
+                </Dialog>
               </motion.div>
             )
           }
-          <div className="relative z-0 xl:z-20 flex-[1.8] h-96 lg:h-80">
+          <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shipping' />
           </div>
         </div>
