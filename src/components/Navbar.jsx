@@ -43,11 +43,11 @@ export default function Navbar() {
     <nav className="fixed z-40 flex flex-col items-center w-full h-auto bg-background border-foreground/60" style={{ borderBottomWidth: '1px' }}>
       <div className="flex flex-row justify-between w-full h-10" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row gap-3">
-          <a href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2">
+          <a href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2" aria-label="contact rall">
             <HiOutlineMail className="w-5 h-5 text-primary"/>
             <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">{ t("email") }</span>
           </a>
-          <a href="tel:+37128596185" className="flex flex-row items-center gap-2">
+          <a href="tel:+37164633840" className="flex flex-row items-center gap-2" aria-label="contact rall">
             <HiOutlinePhone className="w-5 h-5 text-primary"/>
             <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">+37164633840</span>
           </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
             <div className="flex flex-row gap-4">
               <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>
-                <span className={`relative font-medium text-primary after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${(pathname == "/shipping" || pathname == "/dump-trucks" || pathname == "/construction" || pathname == "/rent") ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}><LinkToHash to='/#services' className="whitespace-nowrap uppercase">{ t("section1") }</LinkToHash></span>
+                  <span className={`relative font-medium text-primary after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}><LinkToHash to='/#services' className="whitespace-nowrap uppercase">{ t("section1") }</LinkToHash></span>
                 </MenuHandler>
                 <MenuList className="w-auto">
                   <ul className="w-full focus:outline-none">
@@ -94,9 +94,9 @@ export default function Navbar() {
                 </MenuList>
               </Menu>
 
-              <LinkToHash to="/#about" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section2") }</LinkToHash>
-              <LinkToHash to="/#work" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/about" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section3") }</LinkToHash>
-              <LinkToHash to="/#contact" className={`relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 ${ pathname == "/contact" ? "after:w-1/3" : "after:w-0" } hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300`}>{ t("section4") }</LinkToHash>
+              <LinkToHash to="/#about" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section2") }</LinkToHash>
+              <LinkToHash to="/#work" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section3") }</LinkToHash>
+              <LinkToHash to="/#contact" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section4") }</LinkToHash>
             </div>
           ) : (
             <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">

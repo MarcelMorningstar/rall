@@ -162,14 +162,14 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg1.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg1.webp')" }} />
 
       <section id="services" className="max-xl:px-0">
         <h2>{t("common:section1")}</h2>
 
         <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
           <div className="float-left relative z-0 xl:z-20 flex-[1.8] h-96">
-            <Image src='/images/shipping.jpg' className="object-cover" fill alt='rall shipping' />
+            <Image src='/images/shipping.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
           {
             dimensions && (
@@ -225,12 +225,12 @@ export default function Home() {
             )
           }
           <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
-            <Image src='/images/dump-truck.jpg' className="object-cover" fill alt='rall shipping' />
+            <Image src='/images/dump-truck.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg2.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg2.webp')" }} />
 
       <section id="work">
         <h2>{t("common:section3")}</h2>
@@ -274,7 +274,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg3.jpg')" }} />
+      <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg3.webp')" }} />
 
       <section id="contact">
         <h2>{t("common:section4")}</h2>
@@ -310,7 +310,7 @@ export default function Home() {
         </div>
       </section>
 
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4478106.893429736!2d25.408669955440143!3d56.767423135554246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c2160751325b9d%3A0x92480e3af5b843de!2sRall%20%2C%20SIA!5e0!3m2!1sen!2slv!4v1692030117310!5m2!1sen!2slv" className="w-full h-80" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="rall on the map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4478106.893429736!2d25.408669955440143!3d56.767423135554246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c2160751325b9d%3A0x92480e3af5b843de!2sRall%20%2C%20SIA!5e0!3m2!1sen!2slv!4v1692030117310!5m2!1sen!2slv" className="w-full h-80" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </Layout>
   )
 }

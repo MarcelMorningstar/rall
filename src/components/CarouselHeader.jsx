@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Carousel } from "@material-tailwind/react";
 import { useWindowDimensions } from "@/utilities/window";
 
@@ -18,14 +19,14 @@ export default function CarouselHeader({ t }) {
                 </div>
             )}>
                 <div className="relative w-full h-full">
-                    <img src='/images/shipping-header.jpg' className="w-full h-full object-cover" loading="eager" alt="rall" />
+                    <Image src='/images/shipping-header.webp' className="object-cover" fill sizes="100vw" priority alt="rall" />
                     <div className="absolute bottom-12 lg:bottom-16 right-[6vw] ml-[10vw]">
                         <h1 className="text-right font-bold text-background" style={{ fontSize: 'clamp(1rem, 0.1795rem + 4.1026vw, 3rem)', lineHeight: 'clamp(1.125rem, 0.3045rem + 4.1026vw, 3.125rem)', textShadow: '0 1px 6px rgba(255, 255, 255, 0.5)' }}>{ t("home:title1") }</h1>
                         <h1 className="text-right font-bold text-primary" style={{ fontSize: 'clamp(0.875rem, 0.4135rem + 2.3077vw, 2rem)', lineHeight: 'clamp(0.875rem, 0.4135rem + 2.3077vw, 2rem)', textShadow: '0 1px 6px rgba(255, 255, 255, 0.2)' }}>{ t("home:subtitle1") }</h1>
                     </div>
                 </div>
                 <div className="relative w-full h-full">
-                    <img src='/images/dump-truck-header.jpg' className="w-full h-full object-cover" loading="eager" alt="rall" />
+                    <Image src='/images/dump-truck-header.webp' className="object-cover" fill sizes="100vw" priority alt="rall" />
                     <div className="absolute bottom-12 lg:bottom-16 right-[6vw] ml-[10vw]">
                         <h1 className="text-right font-bold text-primary" style={{ fontSize: 'clamp(1rem, 0.1795rem + 4.1026vw, 3rem)', lineHeight: 'clamp(1.125rem, 0.3045rem + 4.1026vw, 3.125rem)', textShadow: '0 1px 6px rgba(255, 255, 255, 0.5)' }}>{ t("home:title2") }</h1>
                         <h1 className="text-right font-bold text-background" style={{ fontSize: 'clamp(0.875rem, 0.4135rem + 2.3077vw, 2rem)', lineHeight: 'clamp(0.875rem, 0.4135rem + 2.3077vw, 2rem)', textShadow: '0 1px 6px rgba(255, 255, 255, 0.2)' }}>{ t("home:subtitle2") }</h1>
