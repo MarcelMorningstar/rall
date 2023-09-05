@@ -43,9 +43,9 @@ export default function Navbar() {
     <nav className="fixed z-40 flex flex-col items-center w-full h-auto bg-background border-foreground/60" style={{ borderBottomWidth: '1px' }}>
       <div className="flex flex-row justify-between w-full h-10" style={{ paddingLeft: 'min(10vw, 96px)', paddingRight: 'min(10vw, 96px)' }}>
         <div className="flex flex-row gap-3">
-          <a href="mailto:rall@gmail.com" className="flex flex-row items-center gap-2" aria-label="contact rall">
+          <a href="mailto:info@rall.lv" className="flex flex-row items-center gap-2" aria-label="contact rall">
             <HiOutlineMail className="w-5 h-5 text-primary"/>
-            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">{ t("email") }</span>
+            <span className="hidden md:block text-base font-medium whitespace-nowrap text-foreground">info@rall.lv</span>
           </a>
           <a href="tel:+37164633840" className="flex flex-row items-center gap-2" aria-label="contact rall">
             <HiOutlinePhone className="w-5 h-5 text-primary"/>

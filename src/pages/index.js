@@ -254,20 +254,20 @@ export default function Home() {
           >
             <Card title={"Prasības"} directionLeft={true}>
               <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
-                <li>Lorem ipsum dolor sit amet elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur.</li>
-                <li>Lorem ipsum sit amet consectetur elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+                <li>{ t("home:requirement1") }</li>
+                <li>{ t("home:requirement2") }</li>
+                <li>{ t("home:requirement3") }</li>
+                <li>{ t("home:requirement4") }</li>
+                <li>{ t("home:requirement5") }</li>
               </ul>
             </Card>
 
             <Card title={"Mēs nodrošinām"} directionLeft={false}>
               <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
-                <li>Lorem ipsum dolor sit amet consectetur el.</li>
-                <li>Lorem ipsum dolor sit elit.</li>
-                <li>Lorem ipsum dolor sit amet elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur elit.</li>
+                <li>{ t("home:provision1") }</li>
+                <li>{ t("home:provision2") }</li>
+                <li>{ t("home:provision3") }</li>
+                <li>{ t("home:provision4") }</li>
               </ul>
             </Card>
           </motion.div>
@@ -284,13 +284,14 @@ export default function Home() {
             title={<div className="flex flex-col items-center"><Image src="/icons/truck.png" width={72} height={72} alt="contact rall truck" />{t("common:subsection1")}</div>}
             directionLeft={true}
           >
+            <a href="mailto:transport@rall.lv" className="flex flex-row gap-1 items-center justify-center text-lg text-foreground hover:text-secondary"><HiOutlineMail className="w-6 h-6" /><span>transport@rall.lv</span></a>
             <ul className="text-center text-lg font-light">
               <li className="mt-2">
                 <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Zigmārs Rampāns</span>
                 <a href="tel:+37129181831" className="flex flex-row gap-1 items-center justify-center text-base text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span>+37129181831</span></a>
               </li>
               <li className="mt-2">
-                <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Konstanīns Savčenko</span>
+                <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Konstantīns Savčenko</span>
                 <a href="tel:+37126114458" className="flex flex-row gap-1 items-center justify-center text-base text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span>+37126114458</span></a>
               </li>
             </ul>
@@ -303,7 +304,7 @@ export default function Home() {
             <ul className="text-center text-lg font-light">
               <li className="mt-2">
                 <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Arnolds Laizāns</span>
-                <a href="tel:+37129477689" className="flex flex-row gap-1 items-center justify-center text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span  style={{ fontSize: "clamp(0.8125rem, 0.25rem + 3vw, 1rem)" }} >+37129477689</span></a>
+                <a href="tel:+37129477689" className="flex flex-row gap-1 items-center justify-center text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span style={{ fontSize: "clamp(0.8125rem, 0.25rem + 3vw, 1rem)" }} >+37129477689</span></a>
               </li>
             </ul>
           </Card>

@@ -27,9 +27,9 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <a href="mailto:rall@gmail.com" className="flex flex-row lg:flex-row-reverse items-center gap-2" aria-label="contact rall">
+        <a href="mailto:info@rall.lv" className="flex flex-row lg:flex-row-reverse items-center gap-2" aria-label="contact rall">
           <HiOutlineMail className="w-8 h-8 text-secondary"/>
-          <span className="text-2xl font-semibold whitespace-nowrap text-background">{ t("email") }</span>
+          <span className="text-2xl font-semibold whitespace-nowrap text-background">info@rall.lv</span>
         </a>
         <a href="tel:+37164633840" className="flex flex-row lg:flex-row-reverse items-center gap-2" aria-label="contact rall">
           <HiOutlinePhone className="w-8 h-8 text-secondary"/>
