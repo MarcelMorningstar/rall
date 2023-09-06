@@ -27,13 +27,13 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <a href="mailto:info@rall.lv" className="flex flex-row lg:flex-row-reverse items-center gap-2" aria-label="contact rall">
+        <a href="mailto:transport@rall.lv" className="flex flex-row lg:flex-row-reverse items-center gap-2 text-background hover:text-secondary transition-all duration-300" aria-label="contact rall">
           <HiOutlineMail className="w-8 h-8 text-secondary"/>
-          <span className="text-2xl font-semibold whitespace-nowrap text-background">info@rall.lv</span>
+          <span className="text-2xl font-semibold whitespace-nowrap">transport@rall.lv</span>
         </a>
-        <a href="tel:+37164633840" className="flex flex-row lg:flex-row-reverse items-center gap-2" aria-label="contact rall">
+        <a href="tel:+37164633840" className="flex flex-row lg:flex-row-reverse items-center gap-2 text-background hover:text-secondary transition-all duration-300" aria-label="contact rall">
           <HiOutlinePhone className="w-8 h-8 text-secondary"/>
-          <span className="text-2xl font-semibold whitespace-nowrap text-background">+37164633840</span>
+          <span className="text-2xl font-semibold whitespace-nowrap">+37164633840</span>
         </a>
       </div>
     </footer>

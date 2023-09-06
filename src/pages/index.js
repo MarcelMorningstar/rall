@@ -11,7 +11,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from "react-intersection-observer";
 
 export default function Home() {
-  const { t } = useTranslation()
+  const { t, lang } = useTranslation()
   const dimensions = useWindowDimensions()
   const [IconContainer, setIconContainer] = useState(null)
   const ServiceAnimation1 = useAnimation()
@@ -188,7 +188,7 @@ export default function Home() {
                   </DialogBody>
                   <DialogFooter>
                     <Button variant="gradient" color="gray" onClick={handleService1Open}>
-                      <span>Confirm</span>
+                      <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
                     </Button>
                   </DialogFooter>
                 </Dialog>
@@ -217,7 +217,7 @@ export default function Home() {
                   </DialogBody>
                   <DialogFooter>
                     <Button variant="gradient" color="gray" onClick={handleService2Open}>
-                      <span>Confirm</span>
+                      <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
                     </Button>
                   </DialogFooter>
                 </Dialog>
@@ -238,12 +238,12 @@ export default function Home() {
         <div className="flex flex-col items-center gap-8">
           <motion.p 
             className="text-center" 
-            style={{ padding: "0 clamp(0rem, -35.7143rem + 57.1429vw, 25rem)" }}
+            style={{ padding: "0 clamp(0rem, -8.2237rem + 32.8947vw, 31.25rem)" }}
             initial={{ y: 100, opacity: 0 }}
             transition={{ duration: .4 }}
             whileInView={{ y: 0, opacity: 1 }}
           >
-            Mēs aicinām CE kategorijas autovadītājus pievienoties mūsu komandai darbam Eiropas Savienības un NVS valstīs. Piedāvājam darbu arī autovadītājiem no citām valstīm (Ukrainas, Baltkrievijas, Krievijas un citām valstīm).
+            { t("home:work") }
           </motion.p>
         
           <motion.div 
