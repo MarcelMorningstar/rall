@@ -63,6 +63,7 @@ h2::after {
 }
 
 h3 {
+  padding: 6px 0;
   font-size: clamp(1.25rem, 0.8125rem + 2.5vw, 1.75rem);
   line-height: clamp(1.3rem, 0.8125rem + 2.5vw, 1.8rem);
   font-weight: 500;

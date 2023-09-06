@@ -238,7 +238,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-8">
           <motion.p 
             className="text-center" 
-            style={{ padding: "0 clamp(0rem, -8.2237rem + 32.8947vw, 31.25rem)" }}
+            style={{ width: "max(33%, 200px)" }}
             initial={{ y: 100, opacity: 0 }}
             transition={{ duration: .4 }}
             whileInView={{ y: 0, opacity: 1 }}
