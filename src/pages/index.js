@@ -252,7 +252,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
           >
-            <Card title={"Prasības"} directionLeft={true}>
+            <Card title={ t("home:requirements") } directionLeft={true}>
               <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
                 <li>{ t("home:requirement1") }</li>
                 <li>{ t("home:requirement2") }</li>
@@ -262,7 +262,7 @@ export default function Home() {
               </ul>
             </Card>
 
-            <Card title={"Mēs nodrošinām"} directionLeft={false}>
+            <Card title={ t("home:offer") } directionLeft={false}>
               <ul className="list-disc font-light" style={{ fontSize: "clamp(0.875rem, 0.2917rem + 3.3333vw, 1.125rem)", marginLeft: "clamp(0.5rem, -1.4091rem + 10.9091vw, 2rem)" }}>
                 <li>{ t("home:provision1") }</li>
                 <li>{ t("home:provision2") }</li>

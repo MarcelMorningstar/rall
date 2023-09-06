@@ -8,7 +8,7 @@ export default function Card({ title, children, directionLeft }) {
       transition={{ duration: .7 }}
       whileInView={{ x: 0, opacity: 1 }}
     >
-      <h3 className='flex flex-row items-center justify-center text-primary whitespace-nowrap'>{ title }</h3>
+      <h3 className='flex flex-row items-center justify-center text-center text-primary capitalize'>{ title }</h3>
 
       <div className='w-full h-[1px] mt-1 mb-4 bg-foreground/60' />
 
