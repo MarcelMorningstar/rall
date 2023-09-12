@@ -168,13 +168,13 @@ export default function Home() {
         <h2>{t("common:section1")}</h2>
 
         <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          <div className="float-left relative z-0 xl:z-20 flex-[1.8] h-96">
+          <div className="float-left relative z-0 xl:z-20 flex-1 h-96">
             <Image src='/images/shipping.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
           {
             dimensions && (
               <motion.div 
-                className="absolute left-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
                 initial={dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
                 animate={ServiceAnimation1}
                 onClick={handleService1Open}
@@ -202,7 +202,7 @@ export default function Home() {
           {
             dimensions && (
               <motion.div 
-                className="absolute right-0 z-10 xl:static flex-[1.2] w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+                className="absolute right-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
                 initial={dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
                 animate={ServiceAnimation2}
                 onClick={handleService2Open}
@@ -224,8 +224,8 @@ export default function Home() {
               </motion.div>
             )
           }
-          <div className="relative z-0 xl:z-20 flex-[1.8] h-96">
-            <Image src='/images/dump-truck.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
+          <div className="relative z-0 xl:z-20 flex-1 h-96">
+            <Image src='/images/dump-truck.jpg' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
         </div>
       </section>
