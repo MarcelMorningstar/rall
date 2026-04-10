@@ -104,7 +104,7 @@ export default function Home() {
     <Layout>
       {/* <CarouselHeader t={t} /> */}
 
-      {/* <section id="about">
+      <section id="about">
         <h2>{t("common:section2")}</h2>
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
@@ -160,7 +160,7 @@ export default function Home() {
           }
           
         </div>
-      </section> */}
+      </section>
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg1.webp')" }} />
 
