@@ -66,28 +66,28 @@ export default function Home() {
   //   }
   // }, [width, ServiceAnimation1, Service1inView]);
 
-  // useEffect(() => {
-  //   if (width) {
-  //     if (Service2inView) {
-  //       ServiceAnimation2.start({
-  //         x: 0,
-  //         opacity: 1,
-  //         transition: { duration: 0.5 },
-  //       });
-  //     } else {
-  //       ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
-  //     }
-  //   }
-  // }, [width, ServiceAnimation2, Service2inView]);
+  useEffect(() => {
+    if (width) {
+      if (Service2inView) {
+        ServiceAnimation2.start({
+          x: 0,
+          opacity: 1,
+          transition: { duration: 0.5 },
+        });
+      } else {
+        ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
+      }
+    }
+  }, [width, ServiceAnimation2, Service2inView]);
 
-  // const IconItem = {
-  //   hidden: { y: 50, opacity: 0, scale: 0 },
-  //   visible: {
-  //     y: 0,
-  //     opacity: 1,
-  //     scale: 1
-  //   }
-  // };
+  const IconItem = {
+    hidden: { y: 50, opacity: 0, scale: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1
+    }
+  };
 
   // const CardContainer = {
   //   hidden: { opacity: 0 },
