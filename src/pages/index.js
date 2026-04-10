@@ -203,7 +203,7 @@ export default function Home() {
             >
               <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
               <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
-              <Dialog open={service1Open} handler={openService1} size={width >= 1280 ? "md" : "xs"}>
+              <Dialog open={service1Open} handler={openService1} size="md">
                 <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
                 <DialogBody>
                   <p>{ t("home:service1") }</p>
@@ -227,7 +227,7 @@ export default function Home() {
             <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
             <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
             
-            <Dialog open={service2Open} handler={openService2} size={width >= 1280 ? "md" : "xs"}>
+            <Dialog open={service2Open} handler={openService2} size="md">
               <DialogHeader className="capitalize">{ t("common:subsection2") }</DialogHeader>
               <DialogBody>
                 <p>{ t("home:service2") }</p>
