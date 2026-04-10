@@ -24,87 +24,87 @@ export default function Home() {
   const handleService1Open = () => setService1Open(!service1Open);
   const handleService2Open = () => setService2Open(!service2Open);
 
-  useEffect(() => {
-    if (width) {
-      if (width > 1023) {
-        setIconContainer({
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              delayChildren: 0.5,
-              staggerChildren: 0.2
-            }
-          }
-        })
-      } else {
-        setIconContainer({
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              delayChildren: 0.1,
-              staggerChildren: 0.2
-            }
-          }
-        })
-      }
-    }
-  }, [width]);
+  // useEffect(() => {
+  //   if (width) {
+  //     if (width > 1023) {
+  //       setIconContainer({
+  //         hidden: { opacity: 0 },
+  //         visible: {
+  //           opacity: 1,
+  //           transition: {
+  //             delayChildren: 0.5,
+  //             staggerChildren: 0.2
+  //           }
+  //         }
+  //       })
+  //     } else {
+  //       setIconContainer({
+  //         hidden: { opacity: 0 },
+  //         visible: {
+  //           opacity: 1,
+  //           transition: {
+  //             delayChildren: 0.1,
+  //             staggerChildren: 0.2
+  //           }
+  //         }
+  //       })
+  //     }
+  //   }
+  // }, [width]);
 
-  useEffect(() => {
-    if (width) {
-      if (Service1inView) {
-        ServiceAnimation1.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.5 },
-        });
-      } else {
-        ServiceAnimation1.start(width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
-      }
-    }
-  }, [width, ServiceAnimation1, Service1inView]);
+  // useEffect(() => {
+  //   if (width) {
+  //     if (Service1inView) {
+  //       ServiceAnimation1.start({
+  //         x: 0,
+  //         opacity: 1,
+  //         transition: { duration: 0.5 },
+  //       });
+  //     } else {
+  //       ServiceAnimation1.start(width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
+  //     }
+  //   }
+  // }, [width, ServiceAnimation1, Service1inView]);
 
-  useEffect(() => {
-    if (width) {
-      if (Service2inView) {
-        ServiceAnimation2.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.5 },
-        });
-      } else {
-        ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
-      }
-    }
-  }, [width, ServiceAnimation2, Service2inView]);
+  // useEffect(() => {
+  //   if (width) {
+  //     if (Service2inView) {
+  //       ServiceAnimation2.start({
+  //         x: 0,
+  //         opacity: 1,
+  //         transition: { duration: 0.5 },
+  //       });
+  //     } else {
+  //       ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
+  //     }
+  //   }
+  // }, [width, ServiceAnimation2, Service2inView]);
 
-  const IconItem = {
-    hidden: { y: 50, opacity: 0, scale: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1
-    }
-  };
+  // const IconItem = {
+  //   hidden: { y: 50, opacity: 0, scale: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     scale: 1
+  //   }
+  // };
 
-  const CardContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.2
-      }
-    }
-  };
+  // const CardContainer = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       delayChildren: 0.5,
+  //       staggerChildren: 0.2
+  //     }
+  //   }
+  // };
 
   return (
     <Layout>
-      <CarouselHeader t={t} />
+      {/* <CarouselHeader t={t} /> */}
 
-      <section id="about">
+      {/* <section id="about">
         <h2>{t("common:section2")}</h2>
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
@@ -160,11 +160,11 @@ export default function Home() {
           }
           
         </div>
-      </section>
+      </section> */}
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg1.webp')" }} />
 
-      <section id="services" className="max-xl:px-0">
+      {/* <section id="services" className="max-xl:px-0">
         <h2>{t("common:section1")}</h2>
 
         <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
@@ -228,11 +228,11 @@ export default function Home() {
             <Image src='/images/dump-truck.jpg' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg2.webp')" }} />
 
-      <section id="work">
+      {/* <section id="work">
         <h2>{t("common:section3")}</h2>
 
         <div className="flex flex-col items-center gap-8">
@@ -272,11 +272,11 @@ export default function Home() {
             </Card>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg3.jpg')" }} />
 
-      <section id="contact">
+      {/* <section id="contact">
         <h2>{t("common:section4")}</h2>
 
         <div className="flex flex-col lg:flex-row max-lg:items-center lg:justify-center gap-8 lg:gap-16 w-full">
@@ -305,7 +305,7 @@ export default function Home() {
             </ul>
           </Card>
         </div>
-      </section>
+      </section> */}
 
       <iframe title="rall on the map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4478106.893429736!2d25.408669955440143!3d56.767423135554246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c2160751325b9d%3A0x92480e3af5b843de!2sRall%20%2C%20SIA!5e0!3m2!1sen!2slv!4v1692030117310!5m2!1sen!2slv" className="w-full h-80" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </Layout>
