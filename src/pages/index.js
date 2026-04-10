@@ -19,33 +19,33 @@ export default function Home() {
   const [service1Open, setService1Open] = useState(false);
   const [service2Open, setService2Open] = useState(false);
 
-  // useEffect(() => {
-  //   if (width) {
-  //     if (width > 1023) {
-  //       setIconContainer({
-  //         hidden: { opacity: 0 },
-  //         visible: {
-  //           opacity: 1,
-  //           transition: {
-  //             delayChildren: 0.5,
-  //             staggerChildren: 0.2
-  //           }
-  //         }
-  //       })
-  //     } else {
-  //       setIconContainer({
-  //         hidden: { opacity: 0 },
-  //         visible: {
-  //           opacity: 1,
-  //           transition: {
-  //             delayChildren: 0.1,
-  //             staggerChildren: 0.2
-  //           }
-  //         }
-  //       })
-  //     }
-  //   }
-  // }, [width]);
+  useEffect(() => {
+    if (width) {
+      if (width > 1023) {
+        setIconContainer({
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              delayChildren: 0.5,
+              staggerChildren: 0.2
+            }
+          }
+        })
+      } else {
+        setIconContainer({
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              delayChildren: 0.1,
+              staggerChildren: 0.2
+            }
+          }
+        })
+      }
+    }
+  }, [width]);
 
   const service1Initial = useMemo(() => {
     return width > 699
