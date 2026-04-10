@@ -102,7 +102,7 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* <CarouselHeader t={t} /> */}
+      <CarouselHeader t={t} />
 
       <section id="about">
         <h2>{t("common:section2")}</h2>
