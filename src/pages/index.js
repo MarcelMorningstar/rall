@@ -89,16 +89,16 @@ export default function Home() {
     }
   };
 
-  // const CardContainer = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       delayChildren: 0.5,
-  //       staggerChildren: 0.2
-  //     }
-  //   }
-  // };
+  const CardContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.2
+      }
+    }
+  };
 
   return (
     <Layout>
@@ -232,7 +232,7 @@ export default function Home() {
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg2.webp')" }} />
 
-      {/* <section id="work">
+      <section id="work">
         <h2>{t("common:section3")}</h2>
 
         <div className="flex flex-col items-center gap-8">
@@ -272,7 +272,7 @@ export default function Home() {
             </Card>
           </motion.div>
         </div>
-      </section> */}
+      </section>
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg3.jpg')" }} />
 
