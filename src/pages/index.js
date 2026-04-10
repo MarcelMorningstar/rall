@@ -5,7 +5,7 @@ import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import CarouselHeader from "@/components/CarouselHeader"
 import Card from "@/components/Card";
-import { Button, Dialog, DialogHeader, DialogBody, DialogFooter } from "@material-tailwind/react";
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from "react-intersection-observer";
@@ -46,34 +46,6 @@ export default function Home() {
   //     }
   //   }
   // }, [width]);
-
-  // useEffect(() => {
-  //   if (width) {
-  //     if (Service1inView) {
-  //       ServiceAnimation1.start({
-  //         x: 0,
-  //         opacity: 1,
-  //         transition: { duration: 0.5 },
-  //       });
-  //     } else {
-  //       ServiceAnimation1.start(width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
-  //     }
-  //   }
-  // }, [width, ServiceAnimation1, Service1inView]);
-
-  // useEffect(() => {
-  //   if (width) {
-  //     if (Service2inView) {
-  //       ServiceAnimation2.start({
-  //         x: 0,
-  //         opacity: 1,
-  //         transition: { duration: 0.5 },
-  //       });
-  //     } else {
-  //       ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
-  //     }
-  //   }
-  // }, [width, ServiceAnimation2, Service2inView]);
 
   const service1Initial = useMemo(() => {
     return width > 699
@@ -198,16 +170,22 @@ export default function Home() {
           >
             <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
             <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
-            <Dialog open={service1Open} size={width >= 1280 ? "md" : "xs"}>
-              <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
-              <DialogBody>
-                <p>{ t("home:service1") }</p>
-              </DialogBody>
-              <DialogFooter>
-                <Button variant="gradient" color="gray" onClick={() => setService1Open(false)}>
-                  <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
-                </Button>
-              </DialogFooter>
+
+            <Dialog open={service1Open} onClose={() => setService1Open(false)} className="relative z-50">
+              <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <DialogPanel className="max-w-lg space-y-4 border bg-white p-8">
+                  <DialogTitle as="h3">{ t("common:subsection1") }</DialogTitle>
+                  <p>{ t("home:service1") }</p>
+                  <div className="flex gap-4 justify-end">
+                    <button 
+                      className="bg-primary text-white hover:bg-primary/80 px-4 py-2 rounded-xl"
+                      onClick={() => setService1Open(false)}
+                    >
+                      { lang === "en" ? "Done" : "Izlasiju" }
+                    </button>
+                  </div>
+                </DialogPanel>
+              </div>
             </Dialog>
           </motion.div>
         </div>
@@ -222,16 +200,21 @@ export default function Home() {
             <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
             <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
             
-            <Dialog open={service2Open} size={width >= 1280 ? "md" : "xs"}>
-              <DialogHeader className="capitalize">{ t("common:subsection2") }</DialogHeader>
-              <DialogBody>
-                <p>{ t("home:service2") }</p>
-              </DialogBody>
-              <DialogFooter>
-                <Button variant="gradient" color="gray" onClick={() => setService2Open(false)}>
-                  <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
-                </Button>
-              </DialogFooter>
+            <Dialog open={service2Open} onClose={() => setService2Open(false)} className="relative z-50">
+              <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <DialogPanel className="max-w-lg space-y-4 border bg-white p-8">
+                  <DialogTitle as="h3">{ t("common:subsection2") }</DialogTitle>
+                  <p>{ t("home:service2") }</p>
+                  <div className="flex gap-4 justify-end">
+                    <button 
+                      className="bg-primary text-white hover:bg-primary/80 px-4 py-2 rounded-xl"
+                      onClick={() => setService2Open(false)}
+                    >
+                      { lang === "en" ? "Done" : "Izlasiju" }
+                    </button>
+                  </div>
+                </DialogPanel>
+              </div>
             </Dialog>
           </motion.div>
           <div className="relative z-0 xl:z-20 flex-1 h-96">
