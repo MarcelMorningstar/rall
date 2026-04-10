@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useWindowDimensions } from "@/utilities/window";
+import { useWindowSize } from "react-use";
 import LinkToHash from "./LinkToHash";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -11,7 +11,7 @@ import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 export default function Navbar() {
   const [openMenu1, setOpenMenu1] = useState(false)
   const [openMenu2, setOpenMenu2] = useState(false)
-  const dimensions = useWindowDimensions()
+  const { width, height } = useWindowSize();
   const router = useRouter()
   const { pathname, locale, locales, asPath, query } = router
   const { t } = useTranslation('common')
@@ -72,7 +72,7 @@ export default function Navbar() {
         </div>
 
         {
-          dimensions.width > 900 ? (
+          width > 900 ? (
             <div className="flex flex-row gap-4">
               <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useWindowDimensions } from "@/utilities/window";
+import { useWindowSize } from "react-use";
 import Layout from "./layout"
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
@@ -12,21 +12,21 @@ import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const { t, lang } = useTranslation()
-  const dimensions = useWindowDimensions()
+  const { width, height } = useWindowSize();
   const [IconContainer, setIconContainer] = useState(null)
   const ServiceAnimation1 = useAnimation()
   const ServiceAnimation2 = useAnimation()
   const [ServiceRef1, Service1inView] = useInView({ threshold: 0.6 })
   const [ServiceRef2, Service2inView] = useInView({ threshold: 0.6 })
-  const [service1Open, setService1Open] = useState(null);
+  const [service1Open, setService1Open] = useState(false);
   const [service2Open, setService2Open] = useState(false);
 
   const handleService1Open = () => setService1Open(!service1Open);
   const handleService2Open = () => setService2Open(!service2Open);
 
   useEffect(() => {
-    if (dimensions) {
-      if (dimensions.width > 1023) {
+    if (width) {
+      if (width > 1023) {
         setIconContainer({
           hidden: { opacity: 0 },
           visible: {
@@ -50,10 +50,10 @@ export default function Home() {
         })
       }
     }
-  }, [dimensions]);
+  }, [width]);
 
   useEffect(() => {
-    if (dimensions) {
+    if (width) {
       if (Service1inView) {
         ServiceAnimation1.start({
           x: 0,
@@ -61,13 +61,13 @@ export default function Home() {
           transition: { duration: 0.5 },
         });
       } else {
-        ServiceAnimation1.start(dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
+        ServiceAnimation1.start(width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
       }
     }
-  }, [dimensions, ServiceAnimation1, Service1inView]);
+  }, [width, ServiceAnimation1, Service1inView]);
 
   useEffect(() => {
-    if (dimensions) {
+    if (width) {
       if (Service2inView) {
         ServiceAnimation2.start({
           x: 0,
@@ -75,10 +75,10 @@ export default function Home() {
           transition: { duration: 0.5 },
         });
       } else {
-        ServiceAnimation2.start(dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
+        ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
       }
     }
-  }, [dimensions, ServiceAnimation2, Service2inView]);
+  }, [width, ServiceAnimation2, Service2inView]);
 
   const IconItem = {
     hidden: { y: 50, opacity: 0, scale: 0 },
@@ -109,8 +109,8 @@ export default function Home() {
 
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-12">
           {
-            dimensions && (
-              dimensions.width > 1023 ? (
+            width && (
+              width > 1023 ? (
                 <motion.div 
                   className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-[45%]"
                   initial={{ x: -250, opacity: 0, scale: 0 }}
@@ -133,7 +133,7 @@ export default function Home() {
           }
 
           {
-            dimensions && (
+            width && (
               <motion.div 
                 className="flex flex-row flex-wrap items-center justify-center gap-10 w-full lg:w-[55%]"
                 variants={IconContainer}
@@ -172,16 +172,16 @@ export default function Home() {
             <Image src='/images/shipping.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
           {
-            dimensions && (
+            width && (
               <motion.div 
                 className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={dimensions.width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
+                initial={width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
                 animate={ServiceAnimation1}
                 onClick={handleService1Open}
               >
                 <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
                 <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
-                <Dialog open={service1Open} handler={handleService1Open} size={dimensions.width >= 1280 ? "md" : "xs"}>
+                <Dialog open={service1Open} handler={handleService1Open} size={width >= 1280 ? "md" : "xs"}>
                   <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
                   <DialogBody>
                     <p>{ t("home:service1") }</p>
@@ -200,17 +200,17 @@ export default function Home() {
 
         <div ref={ServiceRef2} id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
           {
-            dimensions && (
+            width && (
               <motion.div 
                 className="absolute right-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={dimensions.width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
+                initial={width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
                 animate={ServiceAnimation2}
                 onClick={handleService2Open}
               >
                 <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
                 <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
                 
-                <Dialog open={service2Open} handler={handleService2Open} size={dimensions.width >= 1280 ? "md" : "xs"}>
+                <Dialog open={service2Open} handler={handleService2Open} size={width >= 1280 ? "md" : "xs"}>
                   <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
                   <DialogBody>
                     <p>{ t("home:service1") }</p>
