@@ -290,10 +290,6 @@ export default function Home() {
                 <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Zigmārs Rampāns</span>
                 <a href="tel:+37129181831" className="flex flex-row gap-1 items-center justify-center text-base text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span>+37129181831</span></a>
               </li>
-              <li className="mt-2">
-                <span className="block text-lg leading-5 font-medium text-foreground" style={{ fontSize: "clamp(0.9375rem, 0.375rem + 3vw, 1.125rem)" }}>Konstantīns Savčenko</span>
-                <a href="tel:+37126114458" className="flex flex-row gap-1 items-center justify-center text-base text-foreground hover:text-secondary"><HiOutlinePhone className="w-4 h-4" /><span>+37126114458</span></a>
-              </li>
             </ul>
           </Card>
 
