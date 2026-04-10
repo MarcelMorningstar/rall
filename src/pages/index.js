@@ -19,11 +19,6 @@ export default function Home() {
   const [service1Open, setService1Open] = useState(false);
   const [service2Open, setService2Open] = useState(false);
 
-  const openService1 = () => setService1Open(true);
-  const closeService1 = () => setService1Open(false);
-  const openService2 = () => setService2Open(true);
-  const closeService2 = () => setService2Open(false);
-
   // useEffect(() => {
   //   if (width) {
   //     if (width > 1023) {
@@ -199,21 +194,21 @@ export default function Home() {
             className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
             initial={service1Initial}
             animate={service1Animate}
-            onClick={openService1}
+            onClick={() => setService1Open(true)}
           >
             <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
             <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
-            {/* <Dialog open={service1Open} handler={openService1} size={width >= 1280 ? "md" : "xs"}>
+            <Dialog open={service1Open} size={width >= 1280 ? "md" : "xs"}>
               <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
               <DialogBody>
                 <p>{ t("home:service1") }</p>
               </DialogBody>
               <DialogFooter>
-                <Button variant="gradient" color="gray" onClick={closeService1}>
+                <Button variant="gradient" color="gray" onClick={() => setService1Open(false)}>
                   <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
                 </Button>
               </DialogFooter>
-            </Dialog> */}
+            </Dialog>
           </motion.div>
         </div>
 
@@ -222,22 +217,22 @@ export default function Home() {
             className="absolute right-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
             initial={service2Initial}
             animate={service2Animate}
-            onClick={openService2}
+            onClick={() => setService2Open(true)}
           >
             <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
             <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
             
-            {/* <Dialog open={service2Open} handler={openService2} size={width >= 1280 ? "md" : "xs"}>
+            <Dialog open={service2Open} size={width >= 1280 ? "md" : "xs"}>
               <DialogHeader className="capitalize">{ t("common:subsection2") }</DialogHeader>
               <DialogBody>
                 <p>{ t("home:service2") }</p>
               </DialogBody>
               <DialogFooter>
-                <Button variant="gradient" color="gray" onClick={closeService2}>
+                <Button variant="gradient" color="gray" onClick={() => setService2Open(false)}>
                   <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
                 </Button>
               </DialogFooter>
-            </Dialog> */}
+            </Dialog>
           </motion.div>
           <div className="relative z-0 xl:z-20 flex-1 h-96">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
