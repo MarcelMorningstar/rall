@@ -5,12 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import useTranslation from 'next-translate/useTranslation';
-import { Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 
 export default function Navbar() {
   const [openMenu1, setOpenMenu1] = useState(false)
-  const [openMenu2, setOpenMenu2] = useState(false)
   const { width, height } = useWindowSize();
   const router = useRouter()
   const { pathname, locale, locales, asPath, query } = router
@@ -72,71 +71,70 @@ export default function Navbar() {
         </div>
 
         {
-          width > 900 ? (
+          width && width > 900 ? (
             <div className="flex flex-row gap-4">
-              {/* <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
-                <MenuHandler>
-                  <span className={`relative font-medium text-primary after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}><LinkToHash to='/#services' className="whitespace-nowrap uppercase">{ t("section1") }</LinkToHash></span>
-                </MenuHandler>
-                <MenuList className="w-auto">
-                  <ul className="w-full focus:outline-none">
-                    <LinkToHash to='/#shipping' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection1") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                    <LinkToHash to='/#dump-trucks' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection2") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                  </ul>
-                </MenuList>
-              </Menu> */}
+              <Menu>
+                <MenuButton>
+                  <span className={`relative font-medium text-primary after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer whitespace-nowrap uppercase`}>
+                    { t("section1") }
+                  </span>
+                </MenuButton>
+                <MenuItems anchor="bottom" className="relative z-50 w-52 origin-top-right rounded-xl border shadow-md bg-background p-2 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0">
+                  <MenuItem>
+                    <LinkToHash to='/#shipping' className="text-black capitalize">{ t("subsection1") }</LinkToHash>
+                  </MenuItem>
+                    <MenuItem>
+                      <LinkToHash to='/#dump-trucks' className="block text-black capitalize">{ t("subsection2") }</LinkToHash>
+                    </MenuItem>
+                </MenuItems>
+              </Menu>
 
               <LinkToHash to="/#about" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section2") }</LinkToHash>
               <LinkToHash to="/#work" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section3") }</LinkToHash>
               <LinkToHash to="/#contact" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section4") }</LinkToHash>
             </div>
           ) : (
-            <div></div>
-            // <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
-            //     <MenuHandler>
-            //       <span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span>
-            //     </MenuHandler>
-            //     <MenuList className="w-auto">
-            //       <ul className="w-full focus:outline-none">
-            //         <LinkToHash to='/#services'><span className="text-foreground text-base font-semibold capitalize">{ t("section1") }</span></LinkToHash>
-            //         <LinkToHash to='/#shipping' className="block">
-            //           <MenuItem>
-            //             <span className="text-black capitalize">{ t("subsection1") }</span>
-            //           </MenuItem>
-            //         </LinkToHash>
-            //         <LinkToHash to='/#dump-trucks' className="block">
-            //           <MenuItem>
-            //             <span className="text-black capitalize">{ t("subsection2") }</span>
-            //           </MenuItem>
-            //         </LinkToHash>
-            //         <hr className="my-3" />
-            //         <Link href="/"><span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span></Link>
-            //         <LinkToHash to='/#about' className="block">
-            //           <MenuItem>
-            //             <span className="text-black capitalize">{ t("section2") }</span>
-            //           </MenuItem>
-            //         </LinkToHash>
-            //         <LinkToHash to='/#work' className="block">
-            //           <MenuItem>
-            //             <span className="text-black capitalize">{ t("section3") }</span>
-            //           </MenuItem>
-            //         </LinkToHash>
-            //         <LinkToHash to='/#contact' className="block">
-            //           <MenuItem>
-            //             <span className="text-black capitalize">{ t("section4") }</span>
-            //           </MenuItem>
-            //         </LinkToHash>
-            //       </ul>
-            //     </MenuList>
-            // </Menu>
+            <Menu>
+              <MenuButton><span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span></MenuButton>
+              <MenuItems anchor="bottom end" className="relative z-50 w-52 origin-top-right rounded-xl border shadow-md bg-background p-2 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0">
+                <MenuItem>
+                  <LinkToHash to='/#services' className="text-foreground text-base font-semibold capitalize">
+                    { t("section1") }
+                  </LinkToHash>
+                </MenuItem>
+                <MenuItem>
+                  <LinkToHash to='/#shipping' className="text-black capitalize">
+                    { t("subsection1") }
+                  </LinkToHash>
+                </MenuItem>
+                <MenuItem>
+                  <LinkToHash to='/#dump-trucks' className="text-black capitalize">
+                    { t("subsection2") }
+                </LinkToHash>
+                </MenuItem>
+                <hr className="my-3" />
+                <MenuItem>
+                  <Link href='/' className="text-foreground text-base font-semibold capitalize">
+                    { t("section1.5") }
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <LinkToHash to='/#about' className="text-black capitalize">
+                    { t("section2") }
+                  </LinkToHash>
+                </MenuItem>
+                <MenuItem>
+                  <LinkToHash to='/#work' className="text-black capitalize">
+                    { t("section3") }
+                  </LinkToHash>
+                </MenuItem>
+                <MenuItem>
+                  <LinkToHash to='/#contact' className="text-black capitalize">
+                    { t("section4") }
+                  </LinkToHash>
+                </MenuItem>
+              </MenuItems>
+            </Menu>
           )
         }
       </div>
