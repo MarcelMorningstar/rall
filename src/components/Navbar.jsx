@@ -9,7 +9,6 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { HiMenuAlt3, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 
 export default function Navbar() {
-  const [openMenu1, setOpenMenu1] = useState(false)
   const { width, height } = useWindowSize();
   const router = useRouter()
   const { pathname, locale, locales, asPath, query } = router
@@ -98,17 +97,17 @@ export default function Navbar() {
               <MenuButton><span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span></MenuButton>
               <MenuItems anchor="bottom end" className="relative z-50 w-52 origin-top-right rounded-xl border shadow-md bg-background p-2 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0">
                 <MenuItem>
-                  <LinkToHash to='/#services' className="text-foreground text-base font-semibold capitalize">
+                  <LinkToHash to='/#services' className="block text-foreground text-base font-semibold capitalize">
                     { t("section1") }
                   </LinkToHash>
                 </MenuItem>
                 <MenuItem>
-                  <LinkToHash to='/#shipping' className="text-black capitalize">
+                  <LinkToHash to='/#shipping' className="block text-black capitalize">
                     { t("subsection1") }
                   </LinkToHash>
                 </MenuItem>
                 <MenuItem>
-                  <LinkToHash to='/#dump-trucks' className="text-black capitalize">
+                  <LinkToHash to='/#dump-trucks' className="block text-black capitalize">
                     { t("subsection2") }
                 </LinkToHash>
                 </MenuItem>
@@ -119,17 +118,17 @@ export default function Navbar() {
                   </Link>
                 </MenuItem>
                 <MenuItem>
-                  <LinkToHash to='/#about' className="text-black capitalize">
+                  <LinkToHash to='/#about' className="block text-black capitalize">
                     { t("section2") }
                   </LinkToHash>
                 </MenuItem>
                 <MenuItem>
-                  <LinkToHash to='/#work' className="text-black capitalize">
+                  <LinkToHash to='/#work' className="block text-black capitalize">
                     { t("section3") }
                   </LinkToHash>
                 </MenuItem>
                 <MenuItem>
-                  <LinkToHash to='/#contact' className="text-black capitalize">
+                  <LinkToHash to='/#contact' className="block text-black capitalize">
                     { t("section4") }
                   </LinkToHash>
                 </MenuItem>
