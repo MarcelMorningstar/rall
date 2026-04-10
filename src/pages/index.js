@@ -66,19 +66,19 @@ export default function Home() {
   //   }
   // }, [width, ServiceAnimation1, Service1inView]);
 
-  useEffect(() => {
-    if (width) {
-      if (Service2inView) {
-        ServiceAnimation2.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.5 },
-        });
-      } else {
-        ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
-      }
-    }
-  }, [width, ServiceAnimation2, Service2inView]);
+  // useEffect(() => {
+  //   if (width) {
+  //     if (Service2inView) {
+  //       ServiceAnimation2.start({
+  //         x: 0,
+  //         opacity: 1,
+  //         transition: { duration: 0.5 },
+  //       });
+  //     } else {
+  //       ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
+  //     }
+  //   }
+  // }, [width, ServiceAnimation2, Service2inView]);
 
   const IconItem = {
     hidden: { y: 50, opacity: 0, scale: 0 },
@@ -89,16 +89,16 @@ export default function Home() {
     }
   };
 
-  const CardContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.2
-      }
-    }
-  };
+  // const CardContainer = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       delayChildren: 0.5,
+  //       staggerChildren: 0.2
+  //     }
+  //   }
+  // };
 
   return (
     <Layout>
@@ -164,7 +164,7 @@ export default function Home() {
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg1.webp')" }} />
 
-      <section id="services" className="max-xl:px-0">
+      {/* <section id="services" className="max-xl:px-0">
         <h2>{t("common:section1")}</h2>
 
         <div ref={ServiceRef1} id="shipping" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
@@ -228,11 +228,11 @@ export default function Home() {
             <Image src='/images/dump-truck.jpg' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg2.webp')" }} />
 
-      <section id="work">
+      {/* <section id="work">
         <h2>{t("common:section3")}</h2>
 
         <div className="flex flex-col items-center gap-8">
@@ -272,7 +272,7 @@ export default function Home() {
             </Card>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <div className="h-96 bg-center bg-no-repeat bg-fixed bg-cover" style={{ backgroundImage: "url('/images/bg3.jpg')" }} />
 
