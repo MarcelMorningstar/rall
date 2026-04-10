@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useWindowSize } from "react-use";
 import Layout from "./layout"
 import Image from 'next/image'
@@ -52,33 +52,57 @@ export default function Home() {
   //   }
   // }, [width]);
 
-  useEffect(() => {
-    if (width) {
-      if (Service1inView) {
-        ServiceAnimation1.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.5 },
-        });
-      } else {
-        ServiceAnimation1.start(width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
-      }
-    }
-  }, [width, ServiceAnimation1, Service1inView]);
+  // useEffect(() => {
+  //   if (width) {
+  //     if (Service1inView) {
+  //       ServiceAnimation1.start({
+  //         x: 0,
+  //         opacity: 1,
+  //         transition: { duration: 0.5 },
+  //       });
+  //     } else {
+  //       ServiceAnimation1.start(width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 });
+  //     }
+  //   }
+  // }, [width, ServiceAnimation1, Service1inView]);
 
-  useEffect(() => {
-    if (width) {
-      if (Service2inView) {
-        ServiceAnimation2.start({
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.5 },
-        });
-      } else {
-        ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
-      }
-    }
-  }, [width, ServiceAnimation2, Service2inView]);
+  // useEffect(() => {
+  //   if (width) {
+  //     if (Service2inView) {
+  //       ServiceAnimation2.start({
+  //         x: 0,
+  //         opacity: 1,
+  //         transition: { duration: 0.5 },
+  //       });
+  //     } else {
+  //       ServiceAnimation2.start(width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 });
+  //     }
+  //   }
+  // }, [width, ServiceAnimation2, Service2inView]);
+
+  const service1Initial = useMemo(() => {
+    return width > 699
+      ? { x: -500, opacity: 0 }
+      : { x: -220, opacity: 0 };
+  }, [width]);
+
+  const service1Animate = useMemo(() => (
+    Service1inView
+      ? { x: 0, opacity: 1, transition: { duration: 0.6 } }
+      : service1Initial
+  ), [Service1inView, service1Initial]);
+
+  const service2Initial = useMemo(() => {
+    return width > 699
+      ? { x: 500, opacity: 0 }
+      : { x: 220, opacity: 0 };
+  }, [width]);
+
+  const service2Animate = useMemo(() => (
+    Service2inView
+      ? { x: 0, opacity: 1, transition: { duration: 0.6 } }
+      : service2Initial
+  ), [Service2inView, service2Initial]);
 
   const IconItem = {
     hidden: { y: 50, opacity: 0, scale: 0 },
@@ -171,59 +195,50 @@ export default function Home() {
           <div className="float-left relative z-0 xl:z-20 flex-1 h-96">
             <Image src='/images/shipping.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
-          {
-            width && (
-              <motion.div 
-                className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={width > 699 ? { x: -500, opacity: 0 } : { x: -220, opacity: 0 }}
-                animate={ServiceAnimation1}
-                onClick={handleService1Open}
-              >
-                <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-                <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
-                <Dialog open={service1Open} handler={handleService1Open} size={width >= 1280 ? "md" : "xs"}>
-                  <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
-                  <DialogBody>
-                    <p>{ t("home:service1") }</p>
-                  </DialogBody>
-                  <DialogFooter>
-                    <Button variant="gradient" color="gray" onClick={handleService1Open}>
-                      <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
-                    </Button>
-                  </DialogFooter>
-                </Dialog>
+            <motion.div 
+              className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+              initial={service1Initial}
+              animate={service1Animate}
+              onClick={handleService1Open}
+            >
+              <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
+              <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
+              <Dialog open={service1Open} handler={handleService1Open} size={width >= 1280 ? "md" : "xs"}>
+                <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
+                <DialogBody>
+                  <p>{ t("home:service1") }</p>
+                </DialogBody>
+                <DialogFooter>
+                  <Button variant="gradient" color="gray" onClick={handleService1Open}>
+                    <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
+                  </Button>
+                </DialogFooter>
+              </Dialog>
               </motion.div>
-            )
-          }
-          
         </div>
 
         <div ref={ServiceRef2} id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
-          {
-            width && (
-              <motion.div 
-                className="absolute right-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-                initial={width > 699 ? { x: 500, opacity: 0 } : { x: 220, opacity: 0 }}
-                animate={ServiceAnimation2}
-                onClick={handleService2Open}
-              >
-                <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
-                <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
-                
-                <Dialog open={service2Open} handler={handleService2Open} size={width >= 1280 ? "md" : "xs"}>
-                  <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
-                  <DialogBody>
-                    <p>{ t("home:service1") }</p>
-                  </DialogBody>
-                  <DialogFooter>
-                    <Button variant="gradient" color="gray" onClick={handleService2Open}>
-                      <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
-                    </Button>
-                  </DialogFooter>
-                </Dialog>
-              </motion.div>
-            )
-          }
+          <motion.div 
+            className="absolute right-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+            initial={service2Initial}
+            animate={service2Animate}
+            onClick={handleService2Open}
+          >
+            <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
+            <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
+            
+            <Dialog open={service2Open} handler={handleService2Open} size={width >= 1280 ? "md" : "xs"}>
+              <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
+              <DialogBody>
+                <p>{ t("home:service1") }</p>
+              </DialogBody>
+              <DialogFooter>
+                <Button variant="gradient" color="gray" onClick={handleService2Open}>
+                  <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
+          </motion.div>
           <div className="relative z-0 xl:z-20 flex-1 h-96">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
