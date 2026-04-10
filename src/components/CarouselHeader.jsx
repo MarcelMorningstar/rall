@@ -22,26 +22,26 @@ export default function CarouselHeader({ t }) {
         <div className="carousel-container" >
             <style jsx>{`
                 .carousel-container {
-                position: relative;
-                width: 100%;
-                height: calc(50vh - 111px);
-                transition: all 0.3s ease;
+                    position: relative;
+                    width: 100%;
+                    height: calc(50vh - 111px);
+                    transition: all 0.3s ease;
                 }
 
                 @media (min-width: 613px) {
-                .carousel-container {
-                    height: calc(70vh - 111px);
-                }
+                    .carousel-container {
+                        height: calc(70vh - 111px);
+                    }
                 }
 
                 @media (min-width: 1000px) {
-                .carousel-container {
-                    height: calc(100vh - 111px);
-                }
+                    .carousel-container {
+                        height: calc(100vh - 111px);
+                    }
                 }
             `}</style>
             
-            <Carousel autoplay autoplayDelay={7000} transition={{ duration: 1.2 }} loop navigation={navigation}>
+            <Carousel autoplay={false} autoplayDelay={7000} transition={{ duration: 1.2 }} loop navigation={navigation}>
                 <div className="relative w-full h-full">
                     <Image src='/images/shipping-header.webp' className="object-cover" fill sizes="100vw" priority alt="rall" />
                     <div className="absolute bottom-12 lg:bottom-16 right-[6vw] ml-[10vw]">
