@@ -74,7 +74,7 @@ export default function Navbar() {
         {
           width > 900 ? (
             <div className="flex flex-row gap-4">
-              <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
+              {/* <Menu open={openMenu1} handler={setOpenMenu1} allowHover>
                 <MenuHandler>
                   <span className={`relative font-medium text-primary after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300 cursor-pointer`}><LinkToHash to='/#services' className="whitespace-nowrap uppercase">{ t("section1") }</LinkToHash></span>
                 </MenuHandler>
@@ -92,50 +92,50 @@ export default function Navbar() {
                     </LinkToHash>
                   </ul>
                 </MenuList>
-              </Menu>
+              </Menu> */}
 
               <LinkToHash to="/#about" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section2") }</LinkToHash>
               <LinkToHash to="/#work" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section3") }</LinkToHash>
               <LinkToHash to="/#contact" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section4") }</LinkToHash>
             </div>
           ) : (
-            <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
-                <MenuHandler>
-                  <span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span>
-                </MenuHandler>
-                <MenuList className="w-auto">
-                  <ul className="w-full focus:outline-none">
-                    <LinkToHash to='/#services'><span className="text-foreground text-base font-semibold capitalize">{ t("section1") }</span></LinkToHash>
-                    <LinkToHash to='/#shipping' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection1") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                    <LinkToHash to='/#dump-trucks' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("subsection2") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                    <hr className="my-3" />
-                    <Link href="/"><span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span></Link>
-                    <LinkToHash to='/#about' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("section2") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                    <LinkToHash to='/#work' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("section3") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                    <LinkToHash to='/#contact' className="block">
-                      <MenuItem>
-                        <span className="text-black capitalize">{ t("section4") }</span>
-                      </MenuItem>
-                    </LinkToHash>
-                  </ul>
-                </MenuList>
-            </Menu>
+            // <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
+            //     <MenuHandler>
+            //       <span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span>
+            //     </MenuHandler>
+            //     <MenuList className="w-auto">
+            //       <ul className="w-full focus:outline-none">
+            //         <LinkToHash to='/#services'><span className="text-foreground text-base font-semibold capitalize">{ t("section1") }</span></LinkToHash>
+            //         <LinkToHash to='/#shipping' className="block">
+            //           <MenuItem>
+            //             <span className="text-black capitalize">{ t("subsection1") }</span>
+            //           </MenuItem>
+            //         </LinkToHash>
+            //         <LinkToHash to='/#dump-trucks' className="block">
+            //           <MenuItem>
+            //             <span className="text-black capitalize">{ t("subsection2") }</span>
+            //           </MenuItem>
+            //         </LinkToHash>
+            //         <hr className="my-3" />
+            //         <Link href="/"><span className="text-foreground text-base font-semibold capitalize">{ t("section1.5") }</span></Link>
+            //         <LinkToHash to='/#about' className="block">
+            //           <MenuItem>
+            //             <span className="text-black capitalize">{ t("section2") }</span>
+            //           </MenuItem>
+            //         </LinkToHash>
+            //         <LinkToHash to='/#work' className="block">
+            //           <MenuItem>
+            //             <span className="text-black capitalize">{ t("section3") }</span>
+            //           </MenuItem>
+            //         </LinkToHash>
+            //         <LinkToHash to='/#contact' className="block">
+            //           <MenuItem>
+            //             <span className="text-black capitalize">{ t("section4") }</span>
+            //           </MenuItem>
+            //         </LinkToHash>
+            //       </ul>
+            //     </MenuList>
+            // </Menu>
           )
         }
       </div>
