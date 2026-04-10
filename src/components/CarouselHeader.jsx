@@ -1,7 +1,23 @@
+import { useCallback } from "react";
 import Image from "next/image";
 import { Carousel } from "@material-tailwind/react";
 
 export default function CarouselHeader({ t }) {
+    const navigation = useCallback(
+        ({ setActiveIndex, activeIndex, length }) => (
+            <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+                {Array.from({ length }).map((_, i) => (
+                    <span
+                        key={i}
+                        className={`block h-1 cursor-pointer rounded-2xl transition-all ${
+                            activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
+                        }`}
+                        onClick={() => setActiveIndex(i)}
+                    />
+                ))}
+            </div>
+    ), []);
+
     return (
         <div className="carousel-container" >
             <style jsx>{`
@@ -25,17 +41,7 @@ export default function CarouselHeader({ t }) {
                 }
             `}</style>
             
-            <Carousel autoplay autoplayDelay={7000} transition={{ duration: 1.2 }} loop navigation={({ setActiveIndex, activeIndex, length }) => (
-                <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-                    {new Array(length).fill("").map((_, i) => (
-                        <span
-                            key={i}
-                            className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"}`}
-                            onClick={() => setActiveIndex(i)}
-                        />
-                    ))}
-                </div>
-            )}>
+            <Carousel autoplay autoplayDelay={7000} transition={{ duration: 1.2 }} loop navigation={navigation}>
                 <div className="relative w-full h-full">
                     <Image src='/images/shipping-header.webp' className="object-cover" fill sizes="100vw" priority alt="rall" />
                     <div className="absolute bottom-12 lg:bottom-16 right-[6vw] ml-[10vw]">
