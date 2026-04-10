@@ -21,8 +21,12 @@ export default function Home() {
   const [service1Open, setService1Open] = useState(false);
   const [service2Open, setService2Open] = useState(false);
 
-  const handleService1Open = () => setService1Open(!service1Open);
-  const handleService2Open = () => setService2Open(!service2Open);
+  const handleService1Open = () => {
+    setService1Open((prev) => !prev);
+  };
+  const handleService2Open = () => {
+    setService2Open((prev) => !prev);
+  };
 
   // useEffect(() => {
   //   if (width) {
