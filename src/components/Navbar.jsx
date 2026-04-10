@@ -99,6 +99,7 @@ export default function Navbar() {
               <LinkToHash to="/#contact" className="relative font-medium text-primary whitespace-nowrap uppercase after:block after:absolute after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-1/3 after:h-[2px] after:bg-primary after:transition-all after:duration-300">{ t("section4") }</LinkToHash>
             </div>
           ) : (
+            <div></div>
             // <Menu open={openMenu2} handler={setOpenMenu2} placement="bottom-end">
             //     <MenuHandler>
             //       <span><HiMenuAlt3 className="w-7 h-7 text-primary cursor-pointer" /></span>
