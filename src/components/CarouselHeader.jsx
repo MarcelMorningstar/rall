@@ -1,12 +1,30 @@
 import Image from "next/image";
 import { Carousel } from "@material-tailwind/react";
-import { useWindowSize } from "react-use";
 
 export default function CarouselHeader({ t }) {
-    const { width, height } = useWindowSize();
-
     return (
-        <div className="relative w-full transition-all" style={width && width > 1000 ? { height: 'calc(100vh - 111px)' } : width && width > 613 ? { height: 'calc(70vh - 111px)' } : { height: 'calc(50vh - 111px)' }}>
+        <div className="carousel-container" >
+            <style jsx>{`
+                .carousel-container {
+                position: relative;
+                width: 100%;
+                height: calc(50vh - 111px);
+                transition: all 0.3s ease;
+                }
+
+                @media (min-width: 613px) {
+                .carousel-container {
+                    height: calc(70vh - 111px);
+                }
+                }
+
+                @media (min-width: 1000px) {
+                .carousel-container {
+                    height: calc(100vh - 111px);
+                }
+                }
+            `}</style>
+            
             <Carousel autoplay autoplayDelay={7000} transition={{ duration: 1.2 }} loop navigation={({ setActiveIndex, activeIndex, length }) => (
                 <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
                     {new Array(length).fill("").map((_, i) => (
