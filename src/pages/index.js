@@ -195,26 +195,26 @@ export default function Home() {
           <div className="float-left relative z-0 xl:z-20 flex-1 h-96">
             <Image src='/images/shipping.webp' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
           </div>
-            <motion.div 
-              className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
-              initial={service1Initial}
-              animate={service1Animate}
-              onClick={openService1}
-            >
-              <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
-              <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
-              <Dialog open={service1Open} handler={openService1} size="md">
-                <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
-                <DialogBody>
-                  <p>{ t("home:service1") }</p>
-                </DialogBody>
-                <DialogFooter>
-                  <Button variant="gradient" color="gray" onClick={closeService1}>
-                    <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
-                  </Button>
-                </DialogFooter>
-              </Dialog>
-              </motion.div>
+          <motion.div 
+            className="absolute left-0 z-10 xl:static flex-1 w-4/5 xl:w-auto pl-6 pr-8 xl:px-0 py-4 xl:py-0 bg-black/50 xl:bg-transparent"
+            initial={service1Initial}
+            animate={service1Animate}
+            onClick={openService1}
+          >
+            <h3 className="text-background xl:text-primary">{ t("common:subsection1") }</h3>
+            <p className="text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service1") }</p>
+            <Dialog open={service1Open} handler={openService1} size={width >= 1280 ? "md" : "xs"}>
+              <DialogHeader className="capitalize">{ t("common:subsection1") }</DialogHeader>
+              <DialogBody>
+                <p>{ t("home:service1") }</p>
+              </DialogBody>
+              <DialogFooter>
+                <Button variant="gradient" color="gray" onClick={closeService1}>
+                  <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
+          </motion.div>
         </div>
 
         <div ref={ServiceRef2} id="dump-trucks" className="relative flex flex-row items-center xl:items-start gap-8 xl:py-12">
@@ -227,7 +227,7 @@ export default function Home() {
             <h3 className="text-right text-background xl:text-primary">{ t("common:subsection2") }</h3>
             <p className="text-right text-background xl:text-black line-clamp-[8] xl:line-clamp-[14]">{ t("home:service2") }</p>
             
-            <Dialog open={service2Open} handler={openService2} size="md">
+            {/* <Dialog open={service2Open} handler={openService2} size={width >= 1280 ? "md" : "xs"}>
               <DialogHeader className="capitalize">{ t("common:subsection2") }</DialogHeader>
               <DialogBody>
                 <p>{ t("home:service2") }</p>
@@ -237,7 +237,7 @@ export default function Home() {
                   <span>{ lang === "en" ? "Done" : "Izlasiju" }</span>
                 </Button>
               </DialogFooter>
-            </Dialog>
+            </Dialog> */}
           </motion.div>
           <div className="relative z-0 xl:z-20 flex-1 h-96">
             <Image src='/images/dump-truck.jpg' className="object-cover" fill sizes="(max-width: 1279px) 100vw, 40vw" alt='rall shipping' />
